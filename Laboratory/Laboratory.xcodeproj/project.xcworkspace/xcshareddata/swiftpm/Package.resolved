@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftfoundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rouzbeh-abadi/SwiftFoundation",
+      "state" : {
+        "revision" : "dc7458a003deeafaef9d64aca7a2f021e3337d6b",
+        "version" : "1.0.37"
+      }
+    }
+  ],
+  "version" : 2
+}
