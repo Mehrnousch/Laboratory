@@ -24,6 +24,15 @@
 		56FB403D28563CDE00FE6E6B /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB403C28563CDE00FE6E6B /* Authentication.swift */; };
 		56FB403F28563E2F00FE6E6B /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB403E28563E2F00FE6E6B /* GlobalFunctions.swift */; };
 		56FB404228563F2300FE6E6B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB404128563F2300FE6E6B /* DashboardViewController.swift */; };
+		56FB4168287C875C00FE6E6B /* ExperimentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4167287C875C00FE6E6B /* ExperimentTableView.swift */; };
+		56FB416B287C87EE00FE6E6B /* TableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB416A287C87EE00FE6E6B /* TableBackgroundView.swift */; };
+		56FB416D287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB416C287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift */; };
+		56FB416F287C985E00FE6E6B /* ExperimentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB416E287C985E00FE6E6B /* ExperimentData.swift */; };
+		56FB4171287C9CBF00FE6E6B /* ExpeimentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4170287C9CBF00FE6E6B /* ExpeimentResponse.swift */; };
+		56FB4173287CA01F00FE6E6B /* AddNewExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4172287CA01F00FE6E6B /* AddNewExperiment.swift */; };
+		56FB4176287CCCB100FE6E6B /* NetworkingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4175287CCCB100FE6E6B /* NetworkingModel.swift */; };
+		56FB4179287CCDB300FE6E6B /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4178287CCDB300FE6E6B /* Dictionary.swift */; };
+		56FB417B287CCDF500FE6E6B /* CharacterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB417A287CCDF500FE6E6B /* CharacterSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +73,15 @@
 		56FB403C28563CDE00FE6E6B /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		56FB403E28563E2F00FE6E6B /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		56FB404128563F2300FE6E6B /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		56FB4167287C875C00FE6E6B /* ExperimentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentTableView.swift; sourceTree = "<group>"; };
+		56FB416A287C87EE00FE6E6B /* TableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBackgroundView.swift; sourceTree = "<group>"; };
+		56FB416C287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsListTableViewCell.swift; sourceTree = "<group>"; };
+		56FB416E287C985E00FE6E6B /* ExperimentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentData.swift; sourceTree = "<group>"; };
+		56FB4170287C9CBF00FE6E6B /* ExpeimentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeimentResponse.swift; sourceTree = "<group>"; };
+		56FB4172287CA01F00FE6E6B /* AddNewExperiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewExperiment.swift; sourceTree = "<group>"; };
+		56FB4175287CCCB100FE6E6B /* NetworkingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingModel.swift; sourceTree = "<group>"; };
+		56FB4178287CCDB300FE6E6B /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		56FB417A287CCDF500FE6E6B /* CharacterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +133,8 @@
 		56FB3FF32856346400FE6E6B /* Laboratory */ = {
 			isa = PBXGroup;
 			children = (
+				56FB4165287C867100FE6E6B /* Model */,
+				56FB4164287C866500FE6E6B /* Extention */,
 				56FB403428563BCB00FE6E6B /* Foundation */,
 				56FB403B28563CC400FE6E6B /* Types */,
 				56FB40242856349E00FE6E6B /* Onboarding */,
@@ -176,6 +196,10 @@
 			children = (
 				56FB403028563A3E00FE6E6B /* LoginView.swift */,
 				56FB403228563A9700FE6E6B /* InputFieldView.swift */,
+				56FB4167287C875C00FE6E6B /* ExperimentTableView.swift */,
+				56FB416A287C87EE00FE6E6B /* TableBackgroundView.swift */,
+				56FB416C287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift */,
+				56FB4172287CA01F00FE6E6B /* AddNewExperiment.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +252,41 @@
 			children = (
 			);
 			path = Labs;
+			sourceTree = "<group>";
+		};
+		56FB4164287C866500FE6E6B /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				56FB4178287CCDB300FE6E6B /* Dictionary.swift */,
+				56FB417A287CCDF500FE6E6B /* CharacterSet.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		56FB4165287C867100FE6E6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56FB4177287CCCD000FE6E6B /* DataModel */,
+				56FB4174287CCC9100FE6E6B /* Networking */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		56FB4174287CCC9100FE6E6B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				56FB4175287CCCB100FE6E6B /* NetworkingModel.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		56FB4177287CCCD000FE6E6B /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				56FB416E287C985E00FE6E6B /* ExperimentData.swift */,
+				56FB4170287C9CBF00FE6E6B /* ExpeimentResponse.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,17 +425,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56FB4171287C9CBF00FE6E6B /* ExpeimentResponse.swift in Sources */,
 				56FB4026285634C400FE6E6B /* LoginViewController.swift in Sources */,
+				56FB4179287CCDB300FE6E6B /* Dictionary.swift in Sources */,
 				56FB3FF52856346400FE6E6B /* AppDelegate.swift in Sources */,
 				56FB403F28563E2F00FE6E6B /* GlobalFunctions.swift in Sources */,
+				56FB4168287C875C00FE6E6B /* ExperimentTableView.swift in Sources */,
 				56FB403328563A9700FE6E6B /* InputFieldView.swift in Sources */,
 				56FB3FF72856346400FE6E6B /* SceneDelegate.swift in Sources */,
+				56FB416D287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift in Sources */,
 				56FB403128563A3E00FE6E6B /* LoginView.swift in Sources */,
+				56FB4173287CA01F00FE6E6B /* AddNewExperiment.swift in Sources */,
 				56FB403828563C0A00FE6E6B /* BannerStatusPresenter.swift in Sources */,
 				56FB403A28563C4500FE6E6B /* BannerStatusView.swift in Sources */,
 				56FB404228563F2300FE6E6B /* DashboardViewController.swift in Sources */,
 				56FB402E2856399D00FE6E6B /* InputViewController.swift in Sources */,
+				56FB416F287C985E00FE6E6B /* ExperimentData.swift in Sources */,
 				56FB403D28563CDE00FE6E6B /* Authentication.swift in Sources */,
+				56FB416B287C87EE00FE6E6B /* TableBackgroundView.swift in Sources */,
+				56FB417B287CCDF500FE6E6B /* CharacterSet.swift in Sources */,
+				56FB4176287CCCB100FE6E6B /* NetworkingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
