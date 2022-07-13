@@ -1,23 +1,29 @@
 //
-//  ExperimentsView.swift
+//  AddDetail.swift
 //  Laboratory
 //
-//  Created by mehrnoush abdinian on 11.07.22.
+//  Created by mehrnoush abdinian on 13.07.22.
 //
+
 
 import Foundation
 import UIKit
 
-class ExperimentTableView: UIView {
+class AddExperimentDescriptionTableView: UIView {
     
     private lazy var tableView = UITableView().autoLayoutView()
-    private lazy var tableBackgroundView = TableBackgroundView()
+    private lazy var descriptionTableViewBackground = DescriptionTableViewBackground()
     
-    var experimentsList: [ExperimentData] = [] {
+   /* var experimentsList: [ExperimentData] = [] {
         didSet {
             tableView.reloadData()
         }
-    }
+    }pp*/
+   
+    var experimentDescriptionList : [ExperimentDescription] = [] {
+         didSet {
+             tableView.reloadData()
+         }}
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -34,10 +40,10 @@ class ExperimentTableView: UIView {
 
 // MARK: - TableView Data source
 
-extension ExperimentTableView: UITableViewDataSource {
+extension AddExperimentDescriptionTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 220
+        return 250
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,25 +52,23 @@ extension ExperimentTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if experimentsList.isEmpty {
-            tableView.backgroundView = tableBackgroundView
+        if experimentDescriptionList.isEmpty {
+            tableView.backgroundView = descriptionTableViewBackground
             tableView.separatorStyle  = .none
             return 0
         }
         else {
             tableView.backgroundView  = .none
-            return experimentsList.count
+            return experimentDescriptionList.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "linkCell", for: indexPath) as? ExperimentsListTableViewCell {
-            let linkData = experimentsList[indexPath.row]
-            cell.setupCell(data: linkData)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "linkCell", for: indexPath) as? ExperimentDescriptionTableViewCell {
+            let experimentDescription = experimentDescriptionList[indexPath.row]
+            //cell.setupCell(data: linkData)
+            cell.setupCell(data: experimentDescription)
             cell.selectionStyle = .none
-           
-            
             return cell
         }
         return UITableViewCell()
@@ -73,20 +77,18 @@ extension ExperimentTableView: UITableViewDataSource {
 }
 
 // MARK: - Setup UI
-extension ExperimentTableView {
+extension AddExperimentDescriptionTableView {
     
     func setupDefault() {
-        tableView.register(ExperimentsListTableViewCell.self, forCellReuseIdentifier: "linkCell")
+        tableView.register(ExperimentDescriptionTableViewCell.self, forCellReuseIdentifier: "linkCell")
         tableView.dataSource = self
-        
-        
     }
     
     func setupUI() {
         addSubview(tableView)
-        addSubview(tableBackgroundView)
+        addSubview(descriptionTableViewBackground)
         tableView.backgroundColor = .systemBackground
-        tableBackgroundView.backgroundColor = .systemBackground
+        descriptionTableViewBackground.backgroundColor = .systemBackground
     }
     
      private func setupLayout() {

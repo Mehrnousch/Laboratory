@@ -9,16 +9,24 @@ import Foundation
 import SwiftFoundation
 import UIKit
 
-
-
 class DashboardViewController: ViewController {
     
     private lazy var newExperimentButton = UIBarButtonItem()
-    private lazy var experimentTableView = ExperimentTableView().autoLayoutView()
-    private lazy var  experimentTableViewCell = ExperimentsListTableViewCell().autoLayoutView()
-    public enum Event {
+    private lazy var experimentsListTableView = ExperimentsListTableView().autoLayoutView()
+    private lazy var experimentDetailes = ExperimentDatails()
+    
+    
+    /*public enum Event {
         case shortLink(url: String)
+    }pp*/
+    public enum Event {
+        case newExperiment
     }
+    
+    
+    
+    
+   
     public var eventHandler: ((Event) -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +41,7 @@ class DashboardViewController: ViewController {
 
 extension DashboardViewController {
     
-    private func eventHandlers() {
+   /* private func eventHandlers() {
         
         eventHandler = { [weak self] events in
             switch events {
@@ -42,44 +50,60 @@ extension DashboardViewController {
                 self?.fetchShorterLink(url: url)
             }
         }
-    }
+    }pp*/
+   
+    private func eventHandlers() {
+         
+         eventHandler = { [weak self] events in
+             switch events {
+             case .newExperiment:
+                 self?.experimentDetail()
+             }
+         }
+     }
 }
 
 // MARK: - API call
 
 extension DashboardViewController {
     
-    private func fetchShorterLink(url: String) {
+   /* private func fetchShorterLink(url: String) {
         Task {
             do {
                 let shorterLink = try await NetworkingModel.shared.fetchAlbumWithAsyncURLSession(for: url)
-                    experimentTableView.experimentsList.append(shorterLink)
+                    experimentsListTableView.experimentsList.append(shorterLink)
             } catch {
                 print("Request failed with error: \(error)")
             }
         }
+    }pp*/
+    private func experimentDetail(){
+           print("Experiment Details")
+        experimentsListTableView.experimentsList.append(experimentDetailes)
+        
     }
 }
-
 
 //MARK: -New Experiment Button
 extension DashboardViewController {
-    @objc func pressed() {
+/*    @objc func pressed() {
         let url = "http://apple.com"
             eventHandler?(.shortLink(url: url))
-    }
+    }pp*/
+    @objc func pressed() {
+           
+        eventHandler?(.newExperiment)
+        }
+    
 }
-
-
-
 
 //MARK: -Setup
 extension DashboardViewController {
     
     func setupDefault() {
-     
     }
-    internal override func setupUI() {
+     
+    override func setupUI() {
         title = "Experiments"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItems = [newExperimentButton]
@@ -87,19 +111,16 @@ extension DashboardViewController {
         newExperimentButton.target = self
         newExperimentButton.style = .plain
         newExperimentButton.action = #selector(pressed)
-        view.addSubview(experimentTableView)
+        view.addSubview(experimentsListTableView)
         view.backgroundColor = .secondarySystemBackground
-        experimentTableView.backgroundColor = .secondarySystemBackground
+        experimentsListTableView.backgroundColor = .secondarySystemBackground
     }
     
-    internal override func setupLayout() {
-    
+    override func setupLayout() {
     //LinkTableViewCell
-    experimentTableView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
-    experimentTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
-    experimentTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    
+    experimentsListTableView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
+    experimentsListTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+    experimentsListTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 }
 }
-
 

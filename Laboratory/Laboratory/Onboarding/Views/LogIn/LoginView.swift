@@ -22,7 +22,7 @@ public class LoginView: View {
     private lazy var mainStackView = StackView(axis: .vertical).autoLayoutView()
     private lazy var emailTextField = InputFieldView(modelType: .email).autoLayoutView()
     private lazy var passwordTextField = InputFieldView(modelType: .password).autoLayoutView()
-    private lazy var loginButton = Button(title: "Login", radius: 12, height: 44, color: accentColor, tintColor: .white).autoLayoutView()
+    private lazy var loginButton = Button(title: "Login", radius: 12, height: 44, color: accentColor!, tintColor: .white).autoLayoutView()
     private lazy var forgetPasswordButton = UIButton().autoLayoutView()
     
     private lazy var bannerPresenter = BannerStatusPresenter()

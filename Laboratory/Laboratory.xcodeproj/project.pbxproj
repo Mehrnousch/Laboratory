@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56E2FC68287EAD300077F0A2 /* ExperimentDatails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC67287EAD300077F0A2 /* ExperimentDatails.swift */; };
+		56E2FC6A287F22760077F0A2 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC69287F22760077F0A2 /* UIColor.swift */; };
+		56E2FC6C287F665F0077F0A2 /* AddExperimentDescriptionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC6B287F665F0077F0A2 /* AddExperimentDescriptionTableView.swift */; };
+		56E2FC71287F68390077F0A2 /* ExperimentDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC70287F68390077F0A2 /* ExperimentDescriptionTableViewCell.swift */; };
+		56E2FC73287F68BD0077F0A2 /* DescriptionTableViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC72287F68BD0077F0A2 /* DescriptionTableViewBackground.swift */; };
+		56E2FC75287F6B430077F0A2 /* ExperimentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC74287F6B430077F0A2 /* ExperimentDescription.swift */; };
+		56E2FC77287F70F60077F0A2 /* AddExperimentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC76287F70F60077F0A2 /* AddExperimentDescription.swift */; };
 		56FB3FF52856346400FE6E6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB3FF42856346400FE6E6B /* AppDelegate.swift */; };
 		56FB3FF72856346400FE6E6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB3FF62856346400FE6E6B /* SceneDelegate.swift */; };
 		56FB3FFE2856346400FE6E6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FB3FFD2856346400FE6E6B /* Assets.xcassets */; };
@@ -24,12 +31,11 @@
 		56FB403D28563CDE00FE6E6B /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB403C28563CDE00FE6E6B /* Authentication.swift */; };
 		56FB403F28563E2F00FE6E6B /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB403E28563E2F00FE6E6B /* GlobalFunctions.swift */; };
 		56FB404228563F2300FE6E6B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB404128563F2300FE6E6B /* DashboardViewController.swift */; };
-		56FB4168287C875C00FE6E6B /* ExperimentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4167287C875C00FE6E6B /* ExperimentTableView.swift */; };
+		56FB4168287C875C00FE6E6B /* ExperimentsListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4167287C875C00FE6E6B /* ExperimentsListTableView.swift */; };
 		56FB416B287C87EE00FE6E6B /* TableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB416A287C87EE00FE6E6B /* TableBackgroundView.swift */; };
 		56FB416D287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB416C287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift */; };
 		56FB416F287C985E00FE6E6B /* ExperimentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB416E287C985E00FE6E6B /* ExperimentData.swift */; };
 		56FB4171287C9CBF00FE6E6B /* ExpeimentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4170287C9CBF00FE6E6B /* ExpeimentResponse.swift */; };
-		56FB4173287CA01F00FE6E6B /* AddNewExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4172287CA01F00FE6E6B /* AddNewExperiment.swift */; };
 		56FB4176287CCCB100FE6E6B /* NetworkingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4175287CCCB100FE6E6B /* NetworkingModel.swift */; };
 		56FB4179287CCDB300FE6E6B /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4178287CCDB300FE6E6B /* Dictionary.swift */; };
 		56FB417B287CCDF500FE6E6B /* CharacterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB417A287CCDF500FE6E6B /* CharacterSet.swift */; };
@@ -53,6 +59,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		56E2FC67287EAD300077F0A2 /* ExperimentDatails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDatails.swift; sourceTree = "<group>"; };
+		56E2FC69287F22760077F0A2 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		56E2FC6B287F665F0077F0A2 /* AddExperimentDescriptionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExperimentDescriptionTableView.swift; sourceTree = "<group>"; };
+		56E2FC70287F68390077F0A2 /* ExperimentDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		56E2FC72287F68BD0077F0A2 /* DescriptionTableViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewBackground.swift; sourceTree = "<group>"; };
+		56E2FC74287F6B430077F0A2 /* ExperimentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDescription.swift; sourceTree = "<group>"; };
+		56E2FC76287F70F60077F0A2 /* AddExperimentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExperimentDescription.swift; sourceTree = "<group>"; };
 		56FB3FF12856346400FE6E6B /* Laboratory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Laboratory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FB3FF42856346400FE6E6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56FB3FF62856346400FE6E6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,12 +86,11 @@
 		56FB403C28563CDE00FE6E6B /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		56FB403E28563E2F00FE6E6B /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		56FB404128563F2300FE6E6B /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		56FB4167287C875C00FE6E6B /* ExperimentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentTableView.swift; sourceTree = "<group>"; };
+		56FB4167287C875C00FE6E6B /* ExperimentsListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsListTableView.swift; sourceTree = "<group>"; };
 		56FB416A287C87EE00FE6E6B /* TableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBackgroundView.swift; sourceTree = "<group>"; };
 		56FB416C287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsListTableViewCell.swift; sourceTree = "<group>"; };
 		56FB416E287C985E00FE6E6B /* ExperimentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentData.swift; sourceTree = "<group>"; };
 		56FB4170287C9CBF00FE6E6B /* ExpeimentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeimentResponse.swift; sourceTree = "<group>"; };
-		56FB4172287CA01F00FE6E6B /* AddNewExperiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewExperiment.swift; sourceTree = "<group>"; };
 		56FB4175287CCCB100FE6E6B /* NetworkingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingModel.swift; sourceTree = "<group>"; };
 		56FB4178287CCDB300FE6E6B /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		56FB417A287CCDF500FE6E6B /* CharacterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSet.swift; sourceTree = "<group>"; };
@@ -110,6 +122,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56E2FC6D287F67850077F0A2 /* ExperimentsList */ = {
+			isa = PBXGroup;
+			children = (
+				56FB4167287C875C00FE6E6B /* ExperimentsListTableView.swift */,
+				56FB416C287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift */,
+				56FB416A287C87EE00FE6E6B /* TableBackgroundView.swift */,
+			);
+			path = ExperimentsList;
+			sourceTree = "<group>";
+		};
+		56E2FC6E287F67A50077F0A2 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				56FB403028563A3E00FE6E6B /* LoginView.swift */,
+				56FB403228563A9700FE6E6B /* InputFieldView.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		56E2FC6F287F67B70077F0A2 /* AddDetails */ = {
+			isa = PBXGroup;
+			children = (
+				56E2FC6B287F665F0077F0A2 /* AddExperimentDescriptionTableView.swift */,
+				56E2FC70287F68390077F0A2 /* ExperimentDescriptionTableViewCell.swift */,
+				56E2FC72287F68BD0077F0A2 /* DescriptionTableViewBackground.swift */,
+				56E2FC76287F70F60077F0A2 /* AddExperimentDescription.swift */,
+			);
+			path = AddDetails;
+			sourceTree = "<group>";
+		};
 		56FB3FE82856346300FE6E6B = {
 			isa = PBXGroup;
 			children = (
@@ -194,12 +236,9 @@
 		56FB402F28563A3300FE6E6B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				56FB403028563A3E00FE6E6B /* LoginView.swift */,
-				56FB403228563A9700FE6E6B /* InputFieldView.swift */,
-				56FB4167287C875C00FE6E6B /* ExperimentTableView.swift */,
-				56FB416A287C87EE00FE6E6B /* TableBackgroundView.swift */,
-				56FB416C287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift */,
-				56FB4172287CA01F00FE6E6B /* AddNewExperiment.swift */,
+				56E2FC6F287F67B70077F0A2 /* AddDetails */,
+				56E2FC6E287F67A50077F0A2 /* LogIn */,
+				56E2FC6D287F67850077F0A2 /* ExperimentsList */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,6 +298,7 @@
 			children = (
 				56FB4178287CCDB300FE6E6B /* Dictionary.swift */,
 				56FB417A287CCDF500FE6E6B /* CharacterSet.swift */,
+				56E2FC69287F22760077F0A2 /* UIColor.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -285,6 +325,8 @@
 			children = (
 				56FB416E287C985E00FE6E6B /* ExperimentData.swift */,
 				56FB4170287C9CBF00FE6E6B /* ExpeimentResponse.swift */,
+				56E2FC67287EAD300077F0A2 /* ExperimentDatails.swift */,
+				56E2FC74287F6B430077F0A2 /* ExperimentDescription.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -426,19 +468,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FB4171287C9CBF00FE6E6B /* ExpeimentResponse.swift in Sources */,
+				56E2FC6A287F22760077F0A2 /* UIColor.swift in Sources */,
 				56FB4026285634C400FE6E6B /* LoginViewController.swift in Sources */,
 				56FB4179287CCDB300FE6E6B /* Dictionary.swift in Sources */,
+				56E2FC75287F6B430077F0A2 /* ExperimentDescription.swift in Sources */,
+				56E2FC77287F70F60077F0A2 /* AddExperimentDescription.swift in Sources */,
 				56FB3FF52856346400FE6E6B /* AppDelegate.swift in Sources */,
 				56FB403F28563E2F00FE6E6B /* GlobalFunctions.swift in Sources */,
-				56FB4168287C875C00FE6E6B /* ExperimentTableView.swift in Sources */,
+				56FB4168287C875C00FE6E6B /* ExperimentsListTableView.swift in Sources */,
 				56FB403328563A9700FE6E6B /* InputFieldView.swift in Sources */,
+				56E2FC6C287F665F0077F0A2 /* AddExperimentDescriptionTableView.swift in Sources */,
 				56FB3FF72856346400FE6E6B /* SceneDelegate.swift in Sources */,
+				56E2FC71287F68390077F0A2 /* ExperimentDescriptionTableViewCell.swift in Sources */,
 				56FB416D287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift in Sources */,
 				56FB403128563A3E00FE6E6B /* LoginView.swift in Sources */,
-				56FB4173287CA01F00FE6E6B /* AddNewExperiment.swift in Sources */,
 				56FB403828563C0A00FE6E6B /* BannerStatusPresenter.swift in Sources */,
 				56FB403A28563C4500FE6E6B /* BannerStatusView.swift in Sources */,
+				56E2FC73287F68BD0077F0A2 /* DescriptionTableViewBackground.swift in Sources */,
 				56FB404228563F2300FE6E6B /* DashboardViewController.swift in Sources */,
+				56E2FC68287EAD300077F0A2 /* ExperimentDatails.swift in Sources */,
 				56FB402E2856399D00FE6E6B /* InputViewController.swift in Sources */,
 				56FB416F287C985E00FE6E6B /* ExperimentData.swift in Sources */,
 				56FB403D28563CDE00FE6E6B /* Authentication.swift in Sources */,
