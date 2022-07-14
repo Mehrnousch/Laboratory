@@ -10,11 +10,11 @@ import UIKit
 
 class ExperimentsListTableViewCell: UITableViewCell {
     
-    public var eventHandler: ((Event) -> Void)?
+   /* public var eventHandler: ((Event) -> Void)?
     public enum Event {
         case removeItem(data: ExperimentDatails)
         
-    }
+    }*/
     private lazy var container = UIView().autoLayoutView()
     private lazy var laborNameLabel = UILabel().autoLayoutView()
     private lazy var directionToDetail = UIButton().autoLayoutView()
@@ -37,26 +37,20 @@ class ExperimentsListTableViewCell: UITableViewCell {
 
 // MARK: - data setup cell
 extension ExperimentsListTableViewCell {
-    
-    /*func setupCell(data: ExperimentData) {
-        originalLinkLabel.text = data.original_link
-        shorterLink.text = data.full_short_link
-        experimentData = data
-    }pp*/
-    
     func setupCell(data: ExperimentDatails) {
-        laborNameLabel.text = "labor Name"
-        experimentNameLabel.text = "Experiment name"
-        experimentDate.text = " 02.05.2022"
-        experimentDetails = data
+        laborNameLabel.text = data.laborName
+        experimentNameLabel.text = data.experimentName
+        experimentDate.text = data.experimentDate
     }
 }
+
+
 //MARK: -directionToDetail
 extension ExperimentsListTableViewCell {
-
+/*
     @objc func directionToDetailPressed() {
         eventHandler?(.removeItem(data: ExperimentDatails()))
-    }
+    }*/
 }
 // MARK: - SetupDefault
 
@@ -64,6 +58,7 @@ extension ExperimentsListTableViewCell {
     
     
     func setupDefault() {}}
+
 
 
 // MARK: - SetupUI
@@ -112,6 +107,7 @@ extension ExperimentsListTableViewCell {
     
     private func setupLayout() {
         
+        
         //container
         container.heightAnchor.constraint(equalToConstant: 130).isActive = true
         container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
@@ -121,13 +117,13 @@ extension ExperimentsListTableViewCell {
         
         //laborNameLabel
         laborNameLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
-        laborNameLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -60).isActive = true
         laborNameLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 25).isActive = true
+        laborNameLabel.trailingAnchor.constraint(equalTo: directionToDetail.leadingAnchor, constant: -20).isActive = true
         
     
         //experimentNameLabel
         experimentNameLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
-        experimentNameLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
+        experimentNameLabel.trailingAnchor.constraint(equalTo: directionToDetail.leadingAnchor, constant: -20).isActive = true
         experimentNameLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
       
         
@@ -135,7 +131,7 @@ extension ExperimentsListTableViewCell {
         experimentDate.widthAnchor.constraint(equalToConstant: 80).isActive = true
         experimentDate.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
         experimentDate.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -25).isActive = true
- 
+        
         
         //directionToDetail
         directionToDetail.heightAnchor.constraint(equalToConstant: 50).isActive = true

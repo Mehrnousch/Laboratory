@@ -12,7 +12,7 @@ import UIKit
 class TableBackgroundView: UIView {
     
     private lazy var emptyImage = UIImage(named: "no-URL")
-    private lazy var noDataImage = UIImageView(image: emptyImage)
+   private lazy var noDataImage = UIImageView(image: emptyImage)
     
     
 

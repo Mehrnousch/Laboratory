@@ -12,13 +12,6 @@ class ExperimentsListTableView: UIView {
     
     private lazy var tableView = UITableView().autoLayoutView()
     private lazy var tableBackgroundView = TableBackgroundView()
-    
-   /* var experimentsList: [ExperimentData] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }pp*/
-   
     var experimentsList : [ExperimentDatails] = [] {
          didSet {
              tableView.reloadData()
@@ -64,17 +57,27 @@ extension ExperimentsListTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "linkCell", for: indexPath) as? ExperimentsListTableViewCell {
-            let experimentData = experimentsList[indexPath.row]
-            //cell.setupCell(data: linkData)
-            cell.setupCell(data: experimentData)
+            let experimentDetails = experimentsList[indexPath.row]
+            cell.setupCell(data: experimentDetails)
             cell.selectionStyle = .none
             return cell
+            
+            
         }
         return UITableViewCell()
     }
     
 }
 
+// MARK: - TableView data source
+extension ExperimentsListTableView: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let experiment = experimentsList[indexPath.row]
+        print("dsfdfdsa")
+    }
+    
+}
 // MARK: - Setup UI
 extension ExperimentsListTableView {
     
@@ -85,17 +88,16 @@ extension ExperimentsListTableView {
     
     func setupUI() {
         addSubview(tableView)
-        addSubview(tableBackgroundView)
         tableView.backgroundColor = .systemBackground
         tableBackgroundView.backgroundColor = .systemBackground
     }
     
-     private func setupLayout() {
-         tableView.translatesAutoresizingMaskIntoConstraints = false
-         tableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-         tableView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-         tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-         tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-     }
+    private func setupLayout() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+    }
 }
 

@@ -13,13 +13,15 @@ class AddExperimentDescriptionTableView: UIView {
     
     private lazy var tableView = UITableView().autoLayoutView()
     private lazy var descriptionTableViewBackground = DescriptionTableViewBackground()
-    
+    private lazy var addDescriptionButton = UIButton().autoLayoutView()
+    private lazy var experimentDescription = ExperimentDescription()
+
    /* var experimentsList: [ExperimentData] = [] {
         didSet {
             tableView.reloadData()
         }
     }pp*/
-   
+    
     var experimentDescriptionList : [ExperimentDescription] = [] {
          didSet {
              tableView.reloadData()
@@ -64,7 +66,7 @@ extension AddExperimentDescriptionTableView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "linkCell", for: indexPath) as? ExperimentDescriptionTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "linkCell", for: indexPath) as? AddExperimentDescriptionTableViewCell {
             let experimentDescription = experimentDescriptionList[indexPath.row]
             //cell.setupCell(data: linkData)
             cell.setupCell(data: experimentDescription)
@@ -76,27 +78,44 @@ extension AddExperimentDescriptionTableView: UITableViewDataSource {
     
 }
 
+
+
+
+
 // MARK: - Setup UI
 extension AddExperimentDescriptionTableView {
     
     func setupDefault() {
-        tableView.register(ExperimentDescriptionTableViewCell.self, forCellReuseIdentifier: "linkCell")
+        tableView.register(AddExperimentDescriptionTableViewCell.self, forCellReuseIdentifier: "linkCell")
         tableView.dataSource = self
     }
     
     func setupUI() {
+        addSubview(addDescriptionButton)
         addSubview(tableView)
         addSubview(descriptionTableViewBackground)
         tableView.backgroundColor = .systemBackground
         descriptionTableViewBackground.backgroundColor = .systemBackground
+        
+        //directionToDetail
+        let image = UIImage(systemName: "doc.badge.plus" )
+        addDescriptionButton.setImage(image, for: .normal)
+        //addDescriptionButton1.addTarget(self, action: #selector(pressed), for: .touchUpInside)
+        addDescriptionButton.isEnabled = false
     }
     
      private func setupLayout() {
          tableView.translatesAutoresizingMaskIntoConstraints = false
-         tableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+         tableView.topAnchor.constraint(equalTo:addDescriptionButton.bottomAnchor, constant: 20).isActive = true
          tableView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
          tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
          tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+         
+         //addDescriptionButton
+         addDescriptionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+         addDescriptionButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+         addDescriptionButton.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
+         addDescriptionButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
      }
 }
 
