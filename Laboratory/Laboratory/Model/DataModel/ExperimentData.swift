@@ -4,7 +4,6 @@
 //
 //  Created by mehrnoush abdinian on 11.07.22.
 //
-
 import Foundation
 
 struct ExperimentData: Decodable {
@@ -17,4 +16,3 @@ struct ExperimentData: Decodable {
         self.original_link = original_link
     }
 }
-

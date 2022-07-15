@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		568E1FB628806E9C00EBF3C5 /* ExperimentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */; };
 		56E2FC68287EAD300077F0A2 /* ExperimentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC67287EAD300077F0A2 /* ExperimentDetails.swift */; };
 		56E2FC6A287F22760077F0A2 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC69287F22760077F0A2 /* UIColor.swift */; };
-		56E2FC6C287F665F0077F0A2 /* AddExperimentDescriptionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC6B287F665F0077F0A2 /* AddExperimentDescriptionTableView.swift */; };
 		56E2FC71287F68390077F0A2 /* AddExperimentDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC70287F68390077F0A2 /* AddExperimentDescriptionTableViewCell.swift */; };
 		56E2FC73287F68BD0077F0A2 /* DescriptionTableViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC72287F68BD0077F0A2 /* DescriptionTableViewBackground.swift */; };
 		56E2FC75287F6B430077F0A2 /* ExperimentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC74287F6B430077F0A2 /* ExperimentDescription.swift */; };
@@ -37,7 +37,6 @@
 		56FB4168287C875C00FE6E6B /* ExperimentsListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4167287C875C00FE6E6B /* ExperimentsListTableView.swift */; };
 		56FB416B287C87EE00FE6E6B /* TableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB416A287C87EE00FE6E6B /* TableBackgroundView.swift */; };
 		56FB416D287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB416C287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift */; };
-		56FB416F287C985E00FE6E6B /* ExperimentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB416E287C985E00FE6E6B /* ExperimentData.swift */; };
 		56FB4171287C9CBF00FE6E6B /* ExpeimentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4170287C9CBF00FE6E6B /* ExpeimentResponse.swift */; };
 		56FB4176287CCCB100FE6E6B /* NetworkingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4175287CCCB100FE6E6B /* NetworkingModel.swift */; };
 		56FB4179287CCDB300FE6E6B /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4178287CCDB300FE6E6B /* Dictionary.swift */; };
@@ -62,9 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentData.swift; sourceTree = "<group>"; };
 		56E2FC67287EAD300077F0A2 /* ExperimentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDetails.swift; sourceTree = "<group>"; };
 		56E2FC69287F22760077F0A2 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		56E2FC6B287F665F0077F0A2 /* AddExperimentDescriptionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExperimentDescriptionTableView.swift; sourceTree = "<group>"; };
 		56E2FC70287F68390077F0A2 /* AddExperimentDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExperimentDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		56E2FC72287F68BD0077F0A2 /* DescriptionTableViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewBackground.swift; sourceTree = "<group>"; };
 		56E2FC74287F6B430077F0A2 /* ExperimentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDescription.swift; sourceTree = "<group>"; };
@@ -95,7 +94,6 @@
 		56FB4167287C875C00FE6E6B /* ExperimentsListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsListTableView.swift; sourceTree = "<group>"; };
 		56FB416A287C87EE00FE6E6B /* TableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBackgroundView.swift; sourceTree = "<group>"; };
 		56FB416C287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsListTableViewCell.swift; sourceTree = "<group>"; };
-		56FB416E287C985E00FE6E6B /* ExperimentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentData.swift; sourceTree = "<group>"; };
 		56FB4170287C9CBF00FE6E6B /* ExpeimentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeimentResponse.swift; sourceTree = "<group>"; };
 		56FB4175287CCCB100FE6E6B /* NetworkingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingModel.swift; sourceTree = "<group>"; };
 		56FB4178287CCDB300FE6E6B /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 		56E2FC6F287F67B70077F0A2 /* AddDescription */ = {
 			isa = PBXGroup;
 			children = (
-				56E2FC6B287F665F0077F0A2 /* AddExperimentDescriptionTableView.swift */,
 				56E2FC70287F68390077F0A2 /* AddExperimentDescriptionTableViewCell.swift */,
 				56E2FC72287F68BD0077F0A2 /* DescriptionTableViewBackground.swift */,
 				56E2FC76287F70F60077F0A2 /* AddExperimentDescription.swift */,
@@ -332,10 +329,10 @@
 		56FB4177287CCCD000FE6E6B /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				56FB416E287C985E00FE6E6B /* ExperimentData.swift */,
 				56FB4170287C9CBF00FE6E6B /* ExpeimentResponse.swift */,
 				56E2FC67287EAD300077F0A2 /* ExperimentDetails.swift */,
 				56E2FC74287F6B430077F0A2 /* ExperimentDescription.swift */,
+				568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -487,9 +484,9 @@
 				56E2FC77287F70F60077F0A2 /* AddExperimentDescription.swift in Sources */,
 				56FB3FF52856346400FE6E6B /* AppDelegate.swift in Sources */,
 				56FB403F28563E2F00FE6E6B /* GlobalFunctions.swift in Sources */,
+				568E1FB628806E9C00EBF3C5 /* ExperimentData.swift in Sources */,
 				56FB4168287C875C00FE6E6B /* ExperimentsListTableView.swift in Sources */,
 				56FB403328563A9700FE6E6B /* InputFieldView.swift in Sources */,
-				56E2FC6C287F665F0077F0A2 /* AddExperimentDescriptionTableView.swift in Sources */,
 				56FB3FF72856346400FE6E6B /* SceneDelegate.swift in Sources */,
 				56E2FC71287F68390077F0A2 /* AddExperimentDescriptionTableViewCell.swift in Sources */,
 				56FB416D287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift in Sources */,
@@ -500,7 +497,6 @@
 				56FB404228563F2300FE6E6B /* DashboardViewController.swift in Sources */,
 				56E2FC68287EAD300077F0A2 /* ExperimentDetails.swift in Sources */,
 				56FB402E2856399D00FE6E6B /* InputViewController.swift in Sources */,
-				56FB416F287C985E00FE6E6B /* ExperimentData.swift in Sources */,
 				56FB403D28563CDE00FE6E6B /* Authentication.swift in Sources */,
 				56FB416B287C87EE00FE6E6B /* TableBackgroundView.swift in Sources */,
 				56FB417B287CCDF500FE6E6B /* CharacterSet.swift in Sources */,

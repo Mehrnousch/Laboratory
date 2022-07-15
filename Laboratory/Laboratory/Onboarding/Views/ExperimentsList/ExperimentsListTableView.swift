@@ -61,26 +61,27 @@ extension ExperimentsListTableView: UITableViewDataSource {
             cell.setupCell(data: experimentDetails)
             cell.selectionStyle = .none
             return cell
-            
-            
         }
         return UITableViewCell()
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        let row = indexPath.row
+        print("Row: \(row)")
+        print(experimentsList[indexPath.row] )
+    }
 }
 
 // MARK: - TableView data source
 extension ExperimentsListTableView: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let experiment = experimentsList[indexPath.row]
         print("dsfdfdsa")
     }
-    
 }
 // MARK: - Setup UI
-extension ExperimentsListTableView {
-    
+extension ExperimentsListTableView {    
     func setupDefault() {
         tableView.register(ExperimentsListTableViewCell.self, forCellReuseIdentifier: "linkCell")
         tableView.dataSource = self
