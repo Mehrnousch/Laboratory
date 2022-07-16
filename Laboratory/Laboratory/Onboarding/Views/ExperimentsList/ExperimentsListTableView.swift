@@ -9,14 +9,18 @@ import Foundation
 import UIKit
 
 class ExperimentsListTableView: UIView {
-    
     private lazy var tableView = UITableView().autoLayoutView()
     private lazy var tableBackgroundView = TableBackgroundView()
-    var experimentsList : [ExperimentDatails] = [] {
-         didSet {
-             tableView.reloadData()
-         }}
+    let experimentsList = [
+        ExperimentDetails(name: "azmayesh 1", person: "Mehrnoush",experimentDate:"02.05.2022"),
+        ExperimentDetails(name: "azmayesh 2", person: "Shadi", experimentDate: "03.05.2022"),
+        ExperimentDetails(name: "azmayesh 3", person: "Shaghayegh", experimentDate: "04.05.2022")
+    ]
     
+    public var eventHandler: ((Event) -> Void)?
+    public enum Event{
+        case numberOfSelectedCell(numberOfSelrctedCell: Int)
+    }
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupDefault()
@@ -54,37 +58,35 @@ extension ExperimentsListTableView: UITableViewDataSource {
             return experimentsList.count
         }
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "linkCell", for: indexPath) as? ExperimentsListTableViewCell {
-            let experimentDetails = experimentsList[indexPath.row]
-            cell.setupCell(data: experimentDetails)
-            cell.selectionStyle = .none
+       
+            func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+                   if let cell = tableView.dequeueReusableCell(withIdentifier: "linkCell", for: indexPath) as? ExperimentsListTableViewCell {
+                       let experimentData = experimentsList[indexPath.row]
+                       cell.setupCell(data: experimentData)
+                       cell.selectionStyle = .none
+        
             return cell
         }
         return UITableViewCell()
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-        let row = indexPath.row
-        print("Row: \(row)")
-        print(experimentsList[indexPath.row] )
     }
 }
 
 // MARK: - TableView data source
 extension ExperimentsListTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let experiment = experimentsList[indexPath.row]
-        print("dsfdfdsa")
+        let numberOfSelectedCell = indexPath.row
+        eventHandler?(.numberOfSelectedCell(numberOfSelrctedCell: numberOfSelectedCell))
+        tableView.deselectRow(at: indexPath, animated: true)
+
     }
 }
 // MARK: - Setup UI
-extension ExperimentsListTableView {    
+extension ExperimentsListTableView {
+    
     func setupDefault() {
         tableView.register(ExperimentsListTableViewCell.self, forCellReuseIdentifier: "linkCell")
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     func setupUI() {

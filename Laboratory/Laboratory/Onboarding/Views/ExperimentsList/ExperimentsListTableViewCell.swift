@@ -10,17 +10,12 @@ import UIKit
 
 class ExperimentsListTableViewCell: UITableViewCell {
     
-   /* public var eventHandler: ((Event) -> Void)?
-    public enum Event {
-        case removeItem(data: ExperimentDatails)
-        
-    }*/
+    
     private lazy var container = UIView().autoLayoutView()
     private lazy var laborNameLabel = UILabel().autoLayoutView()
     private lazy var directionToDetail = UIButton().autoLayoutView()
     private lazy var experimentNameLabel = UILabel().autoLayoutView()
     private lazy var experimentDate = UILabel().autoLayoutView()
-    private lazy var experimentDetails = ExperimentDatails()
 
 
     override init(style: ExperimentsListTableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -37,9 +32,10 @@ class ExperimentsListTableViewCell: UITableViewCell {
 
 // MARK: - data setup cell
 extension ExperimentsListTableViewCell {
-    func setupCell(data: ExperimentDatails) {
-        laborNameLabel.text = data.laborName
-        experimentNameLabel.text = data.experimentName
+    
+    func setupCell(data: ExperimentDetails) {
+        laborNameLabel.text = data.person
+        experimentNameLabel.text = data.name
         experimentDate.text = data.experimentDate
     }
 }

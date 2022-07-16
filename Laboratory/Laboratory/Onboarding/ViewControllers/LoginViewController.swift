@@ -106,7 +106,6 @@ extension LoginViewController {
      
     }
     
-    public override func setupLayout() {
-        
+    public override func setupLayout() {        
     }
 }

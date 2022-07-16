@@ -13,20 +13,12 @@ class DashboardViewController: ViewController {
     
     private lazy var newExperimentButton = UIBarButtonItem()
     private lazy var experimentsListTableView = ExperimentsListTableView().autoLayoutView()
-    private lazy var experimentDetailes = ExperimentDatails()
-    
-    
-    /*public enum Event {
-        case shortLink(url: String)
-    }pp*/
+
     public enum Event {
         case newExperiment
+        
     }
-    
-    
-    
-    
-   
+ 
     public var eventHandler: ((Event) -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,28 +32,23 @@ class DashboardViewController: ViewController {
 // MARK: - Handlers
 
 extension DashboardViewController {
-    
-   /* private func eventHandlers() {
-        
-        eventHandler = { [weak self] events in
-            switch events {
-            case .shortLink(let url):
-             
-                self?.fetchShorterLink(url: url)
-            }
-        }
-    }pp*/
-   
     private func eventHandlers() {
-         
          eventHandler = { [weak self] events in
              switch events {
              case .newExperiment:
                  self?.experimentDetail()
              }
          }
+        experimentsListTableView.eventHandler = { [weak self] events in
+            switch events {
+            case .numberOfSelectedCell(let numberOfSelectedCell):
+                print("number of selected Cell is: \(numberOfSelectedCell)")
+            
+            }
+        }
      }
 }
+
 
 // MARK: - API call
 
@@ -79,7 +66,6 @@ extension DashboardViewController {
     }pp*/
     private func experimentDetail(){
            print("Experiment Details")
-        experimentsListTableView.experimentsList.append(experimentDetailes)
         
     }
 }

@@ -7,16 +7,17 @@
 
 import Foundation
 
-struct ExperimentDatails {
- 
-    let laborName: String
-    let experimentName: String
+struct ExperimentDetails {
+    
+    let name: String
+    let person: String
     let experimentDate: String
     
-    internal init(laborName: String = "", experimentName: String = "UIWindowScene.windows") {
-        self.laborName = "Labor1"
-        self.experimentName = "Experiment1"
-        self.experimentDate = "02.02.2022"
+    init(name: String, person: String, experimentDate: String) {
+        self.name = name
+        self.person = person
+        self.experimentDate = experimentDate
+        
     }
 }
 
