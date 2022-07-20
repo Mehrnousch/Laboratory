@@ -57,7 +57,7 @@ extension LoginViewController {
     
     /// Present Dashboard view controller, it's called from ``InputsViewController/eventHandler``
        private func presentDashboardViewController() {
-           lazy var  vc = DashboardViewController()
+           lazy var vc = DashboardViewController()
            lazy var nc = UINavigationController(rootViewController: vc)
            nc.modalPresentationStyle = .fullScreen
            present(nc, animated: true)

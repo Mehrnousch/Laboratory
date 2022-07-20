@@ -16,8 +16,8 @@ class ExperimentsListTableViewCell: UITableViewCell {
     private lazy var directionToDetail = UIButton().autoLayoutView()
     private lazy var experimentNameLabel = UILabel().autoLayoutView()
     private lazy var experimentDate = UILabel().autoLayoutView()
-
-
+    
+    
     override init(style: ExperimentsListTableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
@@ -34,8 +34,9 @@ class ExperimentsListTableViewCell: UITableViewCell {
 extension ExperimentsListTableViewCell {
     
     func setupCell(data: ExperimentDetails) {
-        laborNameLabel.text = data.person
-        experimentNameLabel.text = data.name
+        var expermintId = data.expermintId
+        laborNameLabel.text = data.experimentLabor
+        experimentNameLabel.text = data.experimentName
         experimentDate.text = data.experimentDate
     }
 }
@@ -43,10 +44,10 @@ extension ExperimentsListTableViewCell {
 
 //MARK: -directionToDetail
 extension ExperimentsListTableViewCell {
-/*
-    @objc func directionToDetailPressed() {
-        eventHandler?(.removeItem(data: ExperimentDatails()))
-    }*/
+    /*
+     @objc func directionToDetailPressed() {
+     eventHandler?(.removeItem(data: ExperimentDatails()))
+     }*/
 }
 // MARK: - SetupDefault
 
@@ -69,7 +70,7 @@ extension ExperimentsListTableViewCell {
         container.addSubview(directionToDetail)
         container.addSubview(experimentNameLabel)
         container.addSubview(experimentDate)
- 
+        
         //container
         container.backgroundColor = UIColor.secondarySystemBackground
         container.layer.cornerRadius = 10
@@ -78,13 +79,13 @@ extension ExperimentsListTableViewCell {
         laborNameLabel.translatesAutoresizingMaskIntoConstraints = false
         laborNameLabel.textColor = .label
         laborNameLabel.font = UIFont(name:"HelveticaNeue", size: 14)
-
+        
         
         //experimentNameLabel
         experimentNameLabel.translatesAutoresizingMaskIntoConstraints = false
         experimentNameLabel.textColor = .label
         experimentNameLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 20)
-
+        
         
         // experimentDate
         experimentDate.translatesAutoresizingMaskIntoConstraints = false
@@ -116,12 +117,12 @@ extension ExperimentsListTableViewCell {
         laborNameLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 25).isActive = true
         laborNameLabel.trailingAnchor.constraint(equalTo: directionToDetail.leadingAnchor, constant: -20).isActive = true
         
-    
+        
         //experimentNameLabel
         experimentNameLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
         experimentNameLabel.trailingAnchor.constraint(equalTo: directionToDetail.leadingAnchor, constant: -20).isActive = true
         experimentNameLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
-      
+        
         
         //experimentDate
         experimentDate.widthAnchor.constraint(equalToConstant: 80).isActive = true
@@ -134,5 +135,5 @@ extension ExperimentsListTableViewCell {
         directionToDetail.widthAnchor.constraint(equalToConstant: 50).isActive = true
         directionToDetail.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
         directionToDetail.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
-     }
+    }
 }

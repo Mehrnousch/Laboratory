@@ -1,83 +1,45 @@
 
 //
-//  DashboardViewController.swift
+//  AddExperimentDescriptionViewController.swift
 //  Laboratory
 //
 //  Created by mehrnoush abdinian on 12.06.22.
 //
 
+
 import Foundation
 import SwiftFoundation
 import UIKit
 
-class AddExperimentDescriptionViewController: ViewController {
+class AddExperimentDescriptionViewController: UIViewController {
+    private lazy var tableBackgroundView = TableBackgroundView()
+    private lazy var container = UIView().autoLayoutView()
     private lazy var tableView = UITableView().autoLayoutView()
-    private lazy var descriptionTableViewBackground = DescriptionTableViewBackground()
-    private lazy var addDescriptionButton = UIButton().autoLayoutView()
-    private lazy var experimentDescription = ExperimentDescription()
+    private var experimentDetails: ExperimentDetails
     
-
-   /* var experimentsList: [ExperimentData] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }pp*/
-    
-    var experimentDescriptionList : [ExperimentDescription] = [] {
-         didSet {
-             tableView.reloadData()
-         }}
-    public enum Event {
-        case newExperiment
+    init(experimentDetails : ExperimentDetails) {
+        self.experimentDetails = experimentDetails
+        super.init(nibName: nil, bundle: nil)
     }
-    
-    public var eventHandler: ((Event) -> Void)?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        eventHandlers()
-        setupDefaults()
-        setupUI()
-        setupLayout()
-    }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-// MARK: - Handlers
-
-extension AddExperimentDescriptionViewController {
-    private func eventHandlers() {
-         
-        /* eventHandler = { [weak self] events in
-             switch events {
-             case .newExperiment:
-                 self?.experimentDetail()
-             }
-         }*/
-     }
-   /* private func eventHandlers() {
-        
-        eventHandler = { [weak self] events in
-            switch events {
-            case .shortLink(let url):
-             
-                self?.fetchShorterLink(url: url)
-            }
-        }
-    }pp*/
-   
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupDefault()
+        setupUI()
+        setupLayout()
+        
+    }
 }
-
 // MARK: - TableView Data source
 
 extension AddExperimentDescriptionViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
+        return 150
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -86,68 +48,57 @@ extension AddExperimentDescriptionViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if experimentDescriptionList.isEmpty {
-            //tableView.backgroundView = descriptionTableViewBackground
+        if experimentDetails.text.isEmpty {
+            tableView.backgroundView = tableBackgroundView
             tableView.separatorStyle  = .none
             return 0
         }
         else {
             tableView.backgroundView  = .none
-            return experimentDescriptionList.count
+            return experimentDetails.text.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "linkCell", for: indexPath) as? AddExperimentDescriptionTableViewCell {
-            let experimentDescription = experimentDescriptionList[indexPath.row]
-            //cell.setupCell(data: linkData)
-            cell.setupCell(data: experimentDescription)
+        if  let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell", for: indexPath) as? AddExperimentDescriptionTableViewCell {
+            let text = experimentDetails.text[indexPath.row]
+            cell.setupCell(text: text)
             cell.selectionStyle = .none
             return cell
         }
         return UITableViewCell()
     }
-    
 }
-
-
-
-
-
 // MARK: - Setup UI
 extension AddExperimentDescriptionViewController {
     
-     func setupDefault() {
-        tableView.register(AddExperimentDescriptionTableViewCell.self, forCellReuseIdentifier: "linkCell")
+    func setupDefault() {
+        tableView.register(AddExperimentDescriptionTableViewCell.self, forCellReuseIdentifier: "summaryCell")
         tableView.dataSource = self
-    }
-    
-    override func setupUI() {
-        view.addSubview(addDescriptionButton)
-        view.addSubview(tableView)
-        view.addSubview(descriptionTableViewBackground)
-        tableView.backgroundColor = .systemBackground
-        descriptionTableViewBackground.backgroundColor = .systemBackground
         
-        //directionToDetail
-        let image = UIImage(systemName: "doc.badge.plus" )
-        addDescriptionButton.setImage(image, for: .normal)
-        //addDescriptionButton1.addTarget(self, action: #selector(pressed), for: .touchUpInside)
-        addDescriptionButton.isEnabled = false
     }
     
-    override func setupLayout() {
-         tableView.translatesAutoresizingMaskIntoConstraints = false
-         tableView.topAnchor.constraint(equalTo:addDescriptionButton.bottomAnchor, constant: 20).isActive = true
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-         
-         //addDescriptionButton
-         addDescriptionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-         addDescriptionButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        addDescriptionButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-        addDescriptionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-     }
+    func setupUI() {
+        view.backgroundColor = .secondarySystemBackground
+        title = experimentDetails.experimentName
+        view.addSubview(tableView)
+        tableView.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = true
+        tableBackgroundView.backgroundColor = .systemBackground
+        
+        // print(experimentDescriptions)
+    }
     
+    func setupLayout() {
+        tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
+        //tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        //tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
+        
+        
+        
+    }
 }
+
+

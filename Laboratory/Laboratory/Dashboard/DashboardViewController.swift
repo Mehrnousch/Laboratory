@@ -13,7 +13,6 @@ class DashboardViewController: ViewController {
     
     private lazy var newExperimentButton = UIBarButtonItem()
     private lazy var experimentsListTableView = ExperimentsListTableView().autoLayoutView()
-
     public enum Event {
         case newExperiment
         
@@ -39,10 +38,12 @@ extension DashboardViewController {
                  self?.experimentDetail()
              }
          }
+        
         experimentsListTableView.eventHandler = { [weak self] events in
             switch events {
-            case .numberOfSelectedCell(let numberOfSelectedCell):
-                print("number of selected Cell is: \(numberOfSelectedCell)")
+            case .askExperimentDetail(let details):
+                let vc = AddExperimentDescriptionViewController(experimentDetails: details)
+                self?.navigationController?.pushViewController(vc, animated: true)
             
             }
         }
@@ -53,17 +54,7 @@ extension DashboardViewController {
 // MARK: - API call
 
 extension DashboardViewController {
-    
-   /* private func fetchShorterLink(url: String) {
-        Task {
-            do {
-                let shorterLink = try await NetworkingModel.shared.fetchAlbumWithAsyncURLSession(for: url)
-                    experimentsListTableView.experimentsList.append(shorterLink)
-            } catch {
-                print("Request failed with error: \(error)")
-            }
-        }
-    }pp*/
+
     private func experimentDetail(){
            print("Experiment Details")
         
@@ -72,10 +63,6 @@ extension DashboardViewController {
 
 //MARK: -New Experiment Button
 extension DashboardViewController {
-/*    @objc func pressed() {
-        let url = "http://apple.com"
-            eventHandler?(.shortLink(url: url))
-    }pp*/
     @objc func pressed() {
            
         eventHandler?(.newExperiment)
@@ -105,7 +92,7 @@ extension DashboardViewController {
     override func setupLayout() {
     //LinkTableViewCell
     experimentsListTableView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
-    experimentsListTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        experimentsListTableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
     experimentsListTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 }
 }

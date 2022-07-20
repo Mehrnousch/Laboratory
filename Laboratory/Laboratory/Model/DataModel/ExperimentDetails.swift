@@ -9,14 +9,18 @@ import Foundation
 
 struct ExperimentDetails {
     
-    let name: String
-    let person: String
+    let expermintId: Int
+    let experimentName: String
+    let experimentLabor: String
     let experimentDate: String
+    let text: [String]
     
-    init(name: String, person: String, experimentDate: String) {
-        self.name = name
-        self.person = person
+    init(expermintId: Int, experimentName: String, experimentLabor: String, experimentDate: String, text: [String]) {
+        self.expermintId = expermintId
+        self.experimentName = experimentName
+        self.experimentLabor = experimentLabor
         self.experimentDate = experimentDate
+        self.text = text
         
     }
 }

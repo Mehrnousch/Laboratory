@@ -9,18 +9,23 @@ import Foundation
 import UIKit
 
 class ExperimentsListTableView: UIView {
+    
+    public enum Event{
+        case askExperimentDetail(experiment: ExperimentDetails)
+    }
+    
+    public var eventHandler: ((Event) -> Void)?
+    
+    
     private lazy var tableView = UITableView().autoLayoutView()
     private lazy var tableBackgroundView = TableBackgroundView()
     let experimentsList = [
-        ExperimentDetails(name: "azmayesh 1", person: "Mehrnoush",experimentDate:"02.05.2022"),
-        ExperimentDetails(name: "azmayesh 2", person: "Shadi", experimentDate: "03.05.2022"),
-        ExperimentDetails(name: "azmayesh 3", person: "Shaghayegh", experimentDate: "04.05.2022")
+        ExperimentDetails(expermintId: 232, experimentName: "azmayesh 1", experimentLabor: "Mechanical testing",experimentDate:"02.05.2022", text: [text1, text2, text3]),
+        ExperimentDetails(expermintId: 213, experimentName: "azmayesh 2", experimentLabor: "Chemical  Lab", experimentDate: "03.05.2022", text: [text1, text4, text5, text6]),
+        ExperimentDetails(expermintId: 532, experimentName: "azmayesh 3", experimentLabor: "Biolab", experimentDate: "04.05.2022", text: [text7, text8, text9])
     ]
     
-    public var eventHandler: ((Event) -> Void)?
-    public enum Event{
-        case numberOfSelectedCell(numberOfSelrctedCell: Int)
-    }
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupDefault()
@@ -58,13 +63,13 @@ extension ExperimentsListTableView: UITableViewDataSource {
             return experimentsList.count
         }
     }
-       
-            func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                   if let cell = tableView.dequeueReusableCell(withIdentifier: "linkCell", for: indexPath) as? ExperimentsListTableViewCell {
-                       let experimentData = experimentsList[indexPath.row]
-                       cell.setupCell(data: experimentData)
-                       cell.selectionStyle = .none
-        
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "linkCell", for: indexPath) as? ExperimentsListTableViewCell {
+            let experimentData = experimentsList[indexPath.row]
+            cell.setupCell(data: experimentData)
+            cell.selectionStyle = .none
+            
             return cell
         }
         return UITableViewCell()
@@ -75,9 +80,11 @@ extension ExperimentsListTableView: UITableViewDataSource {
 extension ExperimentsListTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let numberOfSelectedCell = indexPath.row
-        eventHandler?(.numberOfSelectedCell(numberOfSelrctedCell: numberOfSelectedCell))
+        let details = experimentsList[numberOfSelectedCell]
+        eventHandler?(.askExperimentDetail(experiment: details ))
         tableView.deselectRow(at: indexPath, animated: true)
-
+        
+        
     }
 }
 // MARK: - Setup UI
@@ -101,6 +108,7 @@ extension ExperimentsListTableView {
         tableView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        tableView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
     }
 }
 

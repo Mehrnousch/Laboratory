@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		568E1FB628806E9C00EBF3C5 /* ExperimentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */; };
+		568E1FBC288332EE00EBF3C5 /* Tempfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FBB288332EE00EBF3C5 /* Tempfile.swift */; };
+		568E1FC128872B7A00EBF3C5 /* ExperimentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FC028872B7A00EBF3C5 /* ExperimentDescription.swift */; };
 		56E2FC68287EAD300077F0A2 /* ExperimentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC67287EAD300077F0A2 /* ExperimentDetails.swift */; };
 		56E2FC6A287F22760077F0A2 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC69287F22760077F0A2 /* UIColor.swift */; };
 		56E2FC71287F68390077F0A2 /* AddExperimentDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC70287F68390077F0A2 /* AddExperimentDescriptionTableViewCell.swift */; };
-		56E2FC73287F68BD0077F0A2 /* DescriptionTableViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC72287F68BD0077F0A2 /* DescriptionTableViewBackground.swift */; };
-		56E2FC75287F6B430077F0A2 /* ExperimentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC74287F6B430077F0A2 /* ExperimentDescription.swift */; };
-		56E2FC77287F70F60077F0A2 /* AddExperimentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC76287F70F60077F0A2 /* AddExperimentDescription.swift */; };
 		56E2FC79287F76450077F0A2 /* no-URL.png in Resources */ = {isa = PBXBuildFile; fileRef = 56E2FC78287F76450077F0A2 /* no-URL.png */; };
 		56E2FC7B287FFFCF0077F0A2 /* AddExperimentDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC7A287FFFCF0077F0A2 /* AddExperimentDescriptionViewController.swift */; };
 		56E2FC7D288002E90077F0A2 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 56E2FC7C288002E90077F0A2 /* logo.png */; };
@@ -62,12 +61,11 @@
 
 /* Begin PBXFileReference section */
 		568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentData.swift; sourceTree = "<group>"; };
+		568E1FBB288332EE00EBF3C5 /* Tempfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tempfile.swift; sourceTree = "<group>"; };
+		568E1FC028872B7A00EBF3C5 /* ExperimentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDescription.swift; sourceTree = "<group>"; };
 		56E2FC67287EAD300077F0A2 /* ExperimentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDetails.swift; sourceTree = "<group>"; };
 		56E2FC69287F22760077F0A2 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		56E2FC70287F68390077F0A2 /* AddExperimentDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExperimentDescriptionTableViewCell.swift; sourceTree = "<group>"; };
-		56E2FC72287F68BD0077F0A2 /* DescriptionTableViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewBackground.swift; sourceTree = "<group>"; };
-		56E2FC74287F6B430077F0A2 /* ExperimentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDescription.swift; sourceTree = "<group>"; };
-		56E2FC76287F70F60077F0A2 /* AddExperimentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExperimentDescription.swift; sourceTree = "<group>"; };
 		56E2FC78287F76450077F0A2 /* no-URL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "no-URL.png"; path = "Assets.xcassets/no-URL.png"; sourceTree = "<group>"; };
 		56E2FC7A287FFFCF0077F0A2 /* AddExperimentDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExperimentDescriptionViewController.swift; sourceTree = "<group>"; };
 		56E2FC7C288002E90077F0A2 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -126,12 +124,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		568E1FBF28872AFC00EBF3C5 /* ExperimentDescription */ = {
+			isa = PBXGroup;
+			children = (
+				56E2FC6F287F67B70077F0A2 /* AddDescription */,
+				568E1FC028872B7A00EBF3C5 /* ExperimentDescription.swift */,
+			);
+			path = ExperimentDescription;
+			sourceTree = "<group>";
+		};
 		56E2FC6D287F67850077F0A2 /* ExperimentsList */ = {
 			isa = PBXGroup;
 			children = (
 				56FB4167287C875C00FE6E6B /* ExperimentsListTableView.swift */,
 				56FB416C287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift */,
-				56FB416A287C87EE00FE6E6B /* TableBackgroundView.swift */,
 			);
 			path = ExperimentsList;
 			sourceTree = "<group>";
@@ -149,8 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				56E2FC70287F68390077F0A2 /* AddExperimentDescriptionTableViewCell.swift */,
-				56E2FC72287F68BD0077F0A2 /* DescriptionTableViewBackground.swift */,
-				56E2FC76287F70F60077F0A2 /* AddExperimentDescription.swift */,
 			);
 			path = AddDescription;
 			sourceTree = "<group>";
@@ -242,9 +246,10 @@
 		56FB402F28563A3300FE6E6B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				56E2FC6F287F67B70077F0A2 /* AddDescription */,
+				56FB416A287C87EE00FE6E6B /* TableBackgroundView.swift */,
 				56E2FC6E287F67A50077F0A2 /* LogIn */,
 				56E2FC6D287F67850077F0A2 /* ExperimentsList */,
+				568E1FBF28872AFC00EBF3C5 /* ExperimentDescription */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				56FB404128563F2300FE6E6B /* DashboardViewController.swift */,
+				568E1FBB288332EE00EBF3C5 /* Tempfile.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -331,7 +337,6 @@
 			children = (
 				56FB4170287C9CBF00FE6E6B /* ExpeimentResponse.swift */,
 				56E2FC67287EAD300077F0A2 /* ExperimentDetails.swift */,
-				56E2FC74287F6B430077F0A2 /* ExperimentDescription.swift */,
 				568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */,
 			);
 			path = DataModel;
@@ -479,9 +484,8 @@
 				56E2FC6A287F22760077F0A2 /* UIColor.swift in Sources */,
 				56E2FC7B287FFFCF0077F0A2 /* AddExperimentDescriptionViewController.swift in Sources */,
 				56FB4026285634C400FE6E6B /* LoginViewController.swift in Sources */,
+				568E1FC128872B7A00EBF3C5 /* ExperimentDescription.swift in Sources */,
 				56FB4179287CCDB300FE6E6B /* Dictionary.swift in Sources */,
-				56E2FC75287F6B430077F0A2 /* ExperimentDescription.swift in Sources */,
-				56E2FC77287F70F60077F0A2 /* AddExperimentDescription.swift in Sources */,
 				56FB3FF52856346400FE6E6B /* AppDelegate.swift in Sources */,
 				56FB403F28563E2F00FE6E6B /* GlobalFunctions.swift in Sources */,
 				568E1FB628806E9C00EBF3C5 /* ExperimentData.swift in Sources */,
@@ -493,8 +497,8 @@
 				56FB403128563A3E00FE6E6B /* LoginView.swift in Sources */,
 				56FB403828563C0A00FE6E6B /* BannerStatusPresenter.swift in Sources */,
 				56FB403A28563C4500FE6E6B /* BannerStatusView.swift in Sources */,
-				56E2FC73287F68BD0077F0A2 /* DescriptionTableViewBackground.swift in Sources */,
 				56FB404228563F2300FE6E6B /* DashboardViewController.swift in Sources */,
+				568E1FBC288332EE00EBF3C5 /* Tempfile.swift in Sources */,
 				56E2FC68287EAD300077F0A2 /* ExperimentDetails.swift in Sources */,
 				56FB402E2856399D00FE6E6B /* InputViewController.swift in Sources */,
 				56FB403D28563CDE00FE6E6B /* Authentication.swift in Sources */,
