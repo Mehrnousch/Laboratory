@@ -31,7 +31,6 @@ extension AddExperimentDescriptionTableViewCell {
     
     func setupCell (text: String) {
         experimentSummaryText.text = text
-        print(text)
     }
 }
 

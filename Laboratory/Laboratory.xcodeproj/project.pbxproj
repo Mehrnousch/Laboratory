@@ -128,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				56E2FC6F287F67B70077F0A2 /* AddDescription */,
-				568E1FC028872B7A00EBF3C5 /* ExperimentDescription.swift */,
 			);
 			path = ExperimentDescription;
 			sourceTree = "<group>";
@@ -239,6 +238,7 @@
 				56FB4025285634C400FE6E6B /* LoginViewController.swift */,
 				56FB402D2856399D00FE6E6B /* InputViewController.swift */,
 				56E2FC7A287FFFCF0077F0A2 /* AddExperimentDescriptionViewController.swift */,
+				568E1FC028872B7A00EBF3C5 /* ExperimentDescription.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

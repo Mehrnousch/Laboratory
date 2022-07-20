@@ -15,6 +15,11 @@ class AddExperimentDescriptionViewController: UIViewController {
     private lazy var tableBackgroundView = TableBackgroundView()
     private lazy var container = UIView().autoLayoutView()
     private lazy var tableView = UITableView().autoLayoutView()
+    public var eventHandler: ((Event) -> Void)?
+    public enum Event{
+        //change  case showAllDescriptionText(ok: Bool)
+       case showAllDescriptionText(text: String)
+    }
     private var experimentDetails: ExperimentDetails
     
     init(experimentDetails : ExperimentDetails) {
@@ -28,11 +33,31 @@ class AddExperimentDescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventHandlers()
         setupDefault()
         setupUI()
         setupLayout()
         
     }
+}
+// MARK: - Handlers
+
+extension AddExperimentDescriptionViewController {
+    
+    private func eventHandlers() {
+        eventHandler = { [weak self] events in
+            switch events {
+                /* change case .showAllDescriptionText(let ok):
+                let vc = ExperimentDescription(ok:ok) */
+            case .showAllDescriptionText(let text):
+                let vc = ExperimentDescription(text : text)
+                self?.navigationController?.pushViewController(vc, animated: true)
+                
+                 
+                
+            }
+        }
+     }
 }
 // MARK: - TableView Data source
 
@@ -69,14 +94,26 @@ extension AddExperimentDescriptionViewController: UITableViewDataSource {
         return UITableViewCell()
     }
 }
-
+// MARK: - TableView Delegate
+extension AddExperimentDescriptionViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let numberOfSelectedCell = indexPath.row
+        let text = experimentDetails.text[numberOfSelectedCell]
+        //Change
+        //let ok = true
+        //Change eventHandler?(.showAllDescriptionText(ok: ok))
+        eventHandler?(.showAllDescriptionText(text: text))
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
 // MARK: - Setup UI
 extension AddExperimentDescriptionViewController {
     
     func setupDefault() {
         tableView.register(AddExperimentDescriptionTableViewCell.self, forCellReuseIdentifier: "summaryCell")
         tableView.dataSource = self
-        
+        tableView.delegate = self
+
     }
     
     func setupUI() {
