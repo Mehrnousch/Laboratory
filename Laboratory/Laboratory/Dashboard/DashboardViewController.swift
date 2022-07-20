@@ -11,14 +11,8 @@ import UIKit
 
 class DashboardViewController: ViewController {
     
-    private lazy var newExperimentButton = UIBarButtonItem()
+    //private lazy var newExperimentButton = UIBarButtonItem()
     private lazy var experimentsListTableView = ExperimentsListTableView().autoLayoutView()
-    public enum Event {
-        case newExperiment
-        
-    }
- 
-    public var eventHandler: ((Event) -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         eventHandlers()
@@ -31,14 +25,8 @@ class DashboardViewController: ViewController {
 // MARK: - Handlers
 
 extension DashboardViewController {
+    
     private func eventHandlers() {
-         eventHandler = { [weak self] events in
-             switch events {
-             case .newExperiment:
-                 self?.experimentDetail()
-             }
-         }
-        
         experimentsListTableView.eventHandler = { [weak self] events in
             switch events {
             case .askExperimentDetail(let details):
@@ -51,25 +39,6 @@ extension DashboardViewController {
 }
 
 
-// MARK: - API call
-
-extension DashboardViewController {
-
-    private func experimentDetail(){
-           print("Experiment Details")
-        
-    }
-}
-
-//MARK: -New Experiment Button
-extension DashboardViewController {
-    @objc func pressed() {
-           
-        eventHandler?(.newExperiment)
-        }
-    
-}
-
 //MARK: -Setup
 extension DashboardViewController {
     
@@ -78,15 +47,12 @@ extension DashboardViewController {
      
     override func setupUI() {
         title = "Experiments"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItems = [newExperimentButton]
-        newExperimentButton.image = UIImage(systemName: "plus")
-        newExperimentButton.target = self
-        newExperimentButton.style = .plain
-        newExperimentButton.action = #selector(pressed)
+       // navigationController?.navigationBar.prefersLargeTitles = true
+       // navigationItem.rightBarButtonItems = [newExperimentButton]
+       // newExperimentButton.image = UIImage(systemName: "plus")
+        //newExperimentButton.style = .plain
         view.addSubview(experimentsListTableView)
         view.backgroundColor = .secondarySystemBackground
-        experimentsListTableView.backgroundColor = .secondarySystemBackground
     }
     
     override func setupLayout() {

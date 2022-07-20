@@ -69,6 +69,7 @@ extension AddExperimentDescriptionViewController: UITableViewDataSource {
         return UITableViewCell()
     }
 }
+
 // MARK: - Setup UI
 extension AddExperimentDescriptionViewController {
     

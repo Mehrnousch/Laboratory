@@ -34,11 +34,7 @@ extension AddExperimentDescriptionTableViewCell {
         print(text)
     }
 }
-//MARK: -directionToDetail
-extension AddExperimentDescriptionTableViewCell {
-    @objc func directionToDetailPressed() {
-    }
-}
+
 // MARK: - SetupDefault
 
 extension AddExperimentDescriptionTableViewCell {

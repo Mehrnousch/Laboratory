@@ -1,5 +1,5 @@
 //
-//  ExperimentsView.swift
+//  ExperimentsListTableView.swift
 //  Laboratory
 //
 //  Created by mehrnoush abdinian on 11.07.22.
@@ -76,15 +76,13 @@ extension ExperimentsListTableView: UITableViewDataSource {
     }
 }
 
-// MARK: - TableView data source
+// MARK: - TableView Delegate
 extension ExperimentsListTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let numberOfSelectedCell = indexPath.row
         let details = experimentsList[numberOfSelectedCell]
         eventHandler?(.askExperimentDetail(experiment: details ))
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        
     }
 }
 // MARK: - Setup UI
