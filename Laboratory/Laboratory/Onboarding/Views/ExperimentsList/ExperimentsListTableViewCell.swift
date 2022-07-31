@@ -41,20 +41,12 @@ extension ExperimentsListTableViewCell {
     }
 }
 
-
-//MARK: -directionToDetail
-extension ExperimentsListTableViewCell {
-    /*
-     @objc func directionToDetailPressed() {
-     eventHandler?(.removeItem(data: ExperimentDatails()))
-     }*/
-}
 // MARK: - SetupDefault
 
 extension ExperimentsListTableViewCell {
     
     
-    func setupDefault() {}}
+    private func setupDefault() {}}
 
 
 
@@ -63,7 +55,7 @@ extension ExperimentsListTableViewCell {
 extension ExperimentsListTableViewCell {
     
     
-    func setupUI() {
+    private  func setupUI() {
         backgroundColor = UIColor.systemBackground
         contentView.addSubview(container)
         container.addSubview(laborNameLabel)

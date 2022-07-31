@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		567F3CB52896ED3A002B5AA4 /* ReservationViewControllerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F3CB42896ED3A002B5AA4 /* ReservationViewControllerTableView.swift */; };
+		567F3CB72896F740002B5AA4 /* Protokol.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 567F3CB62896F740002B5AA4 /* Protokol.pdf */; };
+		567F3CB92896F791002B5AA4 /* Sicherheit.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 567F3CB82896F791002B5AA4 /* Sicherheit.pdf */; };
 		568E1FB628806E9C00EBF3C5 /* ExperimentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */; };
 		568E1FBC288332EE00EBF3C5 /* Tempfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FBB288332EE00EBF3C5 /* Tempfile.swift */; };
-		568E1FC128872B7A00EBF3C5 /* ExperimentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FC028872B7A00EBF3C5 /* ExperimentDescription.swift */; };
+		568E1FC128872B7A00EBF3C5 /* ExperimentDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FC028872B7A00EBF3C5 /* ExperimentDescriptionViewController.swift */; };
 		56E2FC68287EAD300077F0A2 /* ExperimentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC67287EAD300077F0A2 /* ExperimentDetails.swift */; };
 		56E2FC6A287F22760077F0A2 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC69287F22760077F0A2 /* UIColor.swift */; };
 		56E2FC71287F68390077F0A2 /* AddExperimentDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC70287F68390077F0A2 /* AddExperimentDescriptionTableViewCell.swift */; };
@@ -40,6 +43,12 @@
 		56FB4176287CCCB100FE6E6B /* NetworkingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4175287CCCB100FE6E6B /* NetworkingModel.swift */; };
 		56FB4179287CCDB300FE6E6B /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4178287CCDB300FE6E6B /* Dictionary.swift */; };
 		56FB417B287CCDF500FE6E6B /* CharacterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB417A287CCDF500FE6E6B /* CharacterSet.swift */; };
+		56FDA5FA288999310068BB7B /* AddNewExperimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA5F9288999310068BB7B /* AddNewExperimentViewController.swift */; };
+		56FDA5FC28899D5C0068BB7B /* AddNewExperimentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA5FB28899D5C0068BB7B /* AddNewExperimentTableViewCell.swift */; };
+		56FDA5FE2889CD9D0068BB7B /* LaboratoryReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA5FD2889CD9D0068BB7B /* LaboratoryReservation.swift */; };
+		56FDA600288F28040068BB7B /* LaboratorReservationcollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA5FF288F28040068BB7B /* LaboratorReservationcollectionViewCell.swift */; };
+		56FDA615289063480068BB7B /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA614289063480068BB7B /* SectionHeader.swift */; };
+		56FDA61B2891A5180068BB7B /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA61A2891A5180068BB7B /* Reservation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +69,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		567F3CB42896ED3A002B5AA4 /* ReservationViewControllerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewControllerTableView.swift; sourceTree = "<group>"; };
+		567F3CB62896F740002B5AA4 /* Protokol.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Protokol.pdf; sourceTree = "<group>"; };
+		567F3CB82896F791002B5AA4 /* Sicherheit.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Sicherheit.pdf; sourceTree = "<group>"; };
 		568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentData.swift; sourceTree = "<group>"; };
 		568E1FBB288332EE00EBF3C5 /* Tempfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tempfile.swift; sourceTree = "<group>"; };
-		568E1FC028872B7A00EBF3C5 /* ExperimentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDescription.swift; sourceTree = "<group>"; };
+		568E1FC028872B7A00EBF3C5 /* ExperimentDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDescriptionViewController.swift; sourceTree = "<group>"; };
 		56E2FC67287EAD300077F0A2 /* ExperimentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDetails.swift; sourceTree = "<group>"; };
 		56E2FC69287F22760077F0A2 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		56E2FC70287F68390077F0A2 /* AddExperimentDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExperimentDescriptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -96,6 +108,12 @@
 		56FB4175287CCCB100FE6E6B /* NetworkingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingModel.swift; sourceTree = "<group>"; };
 		56FB4178287CCDB300FE6E6B /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		56FB417A287CCDF500FE6E6B /* CharacterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSet.swift; sourceTree = "<group>"; };
+		56FDA5F9288999310068BB7B /* AddNewExperimentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewExperimentViewController.swift; sourceTree = "<group>"; };
+		56FDA5FB28899D5C0068BB7B /* AddNewExperimentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewExperimentTableViewCell.swift; sourceTree = "<group>"; };
+		56FDA5FD2889CD9D0068BB7B /* LaboratoryReservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryReservation.swift; sourceTree = "<group>"; };
+		56FDA5FF288F28040068BB7B /* LaboratorReservationcollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratorReservationcollectionViewCell.swift; sourceTree = "<group>"; };
+		56FDA614289063480068BB7B /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		56FDA61A2891A5180068BB7B /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,7 +240,9 @@
 		56FB4027285634CF00FE6E6B /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				567F3CB62896F740002B5AA4 /* Protokol.pdf */,
 				56FB3FFD2856346400FE6E6B /* Assets.xcassets */,
+				567F3CB82896F791002B5AA4 /* Sicherheit.pdf */,
 				56E2FC78287F76450077F0A2 /* no-URL.png */,
 				56E2FC7C288002E90077F0A2 /* logo.png */,
 				56FB3FFF2856346400FE6E6B /* LaunchScreen.storyboard */,
@@ -237,8 +257,11 @@
 			children = (
 				56FB4025285634C400FE6E6B /* LoginViewController.swift */,
 				56FB402D2856399D00FE6E6B /* InputViewController.swift */,
+				56FDA5F9288999310068BB7B /* AddNewExperimentViewController.swift */,
 				56E2FC7A287FFFCF0077F0A2 /* AddExperimentDescriptionViewController.swift */,
-				568E1FC028872B7A00EBF3C5 /* ExperimentDescription.swift */,
+				568E1FC028872B7A00EBF3C5 /* ExperimentDescriptionViewController.swift */,
+				56FDA5FD2889CD9D0068BB7B /* LaboratoryReservation.swift */,
+				567F3CB42896ED3A002B5AA4 /* ReservationViewControllerTableView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -246,7 +269,9 @@
 		56FB402F28563A3300FE6E6B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				56FDA5FB28899D5C0068BB7B /* AddNewExperimentTableViewCell.swift */,
 				56FB416A287C87EE00FE6E6B /* TableBackgroundView.swift */,
+				56FDA613289063300068BB7B /* reservation */,
 				56E2FC6E287F67A50077F0A2 /* LogIn */,
 				56E2FC6D287F67850077F0A2 /* ExperimentsList */,
 				568E1FBF28872AFC00EBF3C5 /* ExperimentDescription */,
@@ -338,8 +363,18 @@
 				56FB4170287C9CBF00FE6E6B /* ExpeimentResponse.swift */,
 				56E2FC67287EAD300077F0A2 /* ExperimentDetails.swift */,
 				568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */,
+				56FDA61A2891A5180068BB7B /* Reservation.swift */,
 			);
 			path = DataModel;
+			sourceTree = "<group>";
+		};
+		56FDA613289063300068BB7B /* reservation */ = {
+			isa = PBXGroup;
+			children = (
+				56FDA5FF288F28040068BB7B /* LaboratorReservationcollectionViewCell.swift */,
+				56FDA614289063480068BB7B /* SectionHeader.swift */,
+			);
+			path = reservation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,8 +488,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				56E2FC7D288002E90077F0A2 /* logo.png in Resources */,
+				567F3CB72896F740002B5AA4 /* Protokol.pdf in Resources */,
 				56FB40012856346400FE6E6B /* LaunchScreen.storyboard in Resources */,
 				56E2FC79287F76450077F0A2 /* no-URL.png in Resources */,
+				567F3CB92896F791002B5AA4 /* Sicherheit.pdf in Resources */,
 				56FB3FFE2856346400FE6E6B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,18 +518,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FB4171287C9CBF00FE6E6B /* ExpeimentResponse.swift in Sources */,
+				56FDA5FC28899D5C0068BB7B /* AddNewExperimentTableViewCell.swift in Sources */,
 				56E2FC6A287F22760077F0A2 /* UIColor.swift in Sources */,
 				56E2FC7B287FFFCF0077F0A2 /* AddExperimentDescriptionViewController.swift in Sources */,
+				56FDA5FA288999310068BB7B /* AddNewExperimentViewController.swift in Sources */,
 				56FB4026285634C400FE6E6B /* LoginViewController.swift in Sources */,
-				568E1FC128872B7A00EBF3C5 /* ExperimentDescription.swift in Sources */,
+				56FDA600288F28040068BB7B /* LaboratorReservationcollectionViewCell.swift in Sources */,
+				56FDA615289063480068BB7B /* SectionHeader.swift in Sources */,
+				568E1FC128872B7A00EBF3C5 /* ExperimentDescriptionViewController.swift in Sources */,
 				56FB4179287CCDB300FE6E6B /* Dictionary.swift in Sources */,
 				56FB3FF52856346400FE6E6B /* AppDelegate.swift in Sources */,
 				56FB403F28563E2F00FE6E6B /* GlobalFunctions.swift in Sources */,
 				568E1FB628806E9C00EBF3C5 /* ExperimentData.swift in Sources */,
+				56FDA5FE2889CD9D0068BB7B /* LaboratoryReservation.swift in Sources */,
+				56FDA61B2891A5180068BB7B /* Reservation.swift in Sources */,
 				56FB4168287C875C00FE6E6B /* ExperimentsListTableView.swift in Sources */,
 				56FB403328563A9700FE6E6B /* InputFieldView.swift in Sources */,
 				56FB3FF72856346400FE6E6B /* SceneDelegate.swift in Sources */,
 				56E2FC71287F68390077F0A2 /* AddExperimentDescriptionTableViewCell.swift in Sources */,
+				567F3CB52896ED3A002B5AA4 /* ReservationViewControllerTableView.swift in Sources */,
 				56FB416D287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift in Sources */,
 				56FB403128563A3E00FE6E6B /* LoginView.swift in Sources */,
 				56FB403828563C0A00FE6E6B /* BannerStatusPresenter.swift in Sources */,

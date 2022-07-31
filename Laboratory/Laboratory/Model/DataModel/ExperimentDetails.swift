@@ -15,12 +15,14 @@ struct ExperimentDetails {
     let experimentDate: String
     let text: [String]
     
-    init(expermintId: Int, experimentName: String, experimentLabor: String, experimentDate: String, text: [String]) {
+    
+    init(expermintId: Int, experimentName: String, experimentLabor: String, experimentDate: String, text: [String] ) {
         self.expermintId = expermintId
         self.experimentName = experimentName
         self.experimentLabor = experimentLabor
         self.experimentDate = experimentDate
         self.text = text
+       
         
     }
 }

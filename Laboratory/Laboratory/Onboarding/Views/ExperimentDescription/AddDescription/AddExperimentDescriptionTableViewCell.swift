@@ -58,7 +58,8 @@ extension AddExperimentDescriptionTableViewCell {
         //experimentSummary
         experimentSummaryText.translatesAutoresizingMaskIntoConstraints = false
         experimentSummaryText.textColor = .label
-        //experimentSummaryText.font = UIFont(name:"HelveticaNeue", size: 14)
+        experimentSummaryText.font = UIFont(name:"HelveticaNeue", size: 10)
+        experimentSummaryText.textAlignment = NSTextAlignment.natural
     }
     
     private func setupLayout() {

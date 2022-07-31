@@ -1,6 +1,7 @@
 
 //
 //  AddExperimentDescriptionViewController.swift
+//  The user can describe the experiment performed.
 //  Laboratory
 //
 //  Created by mehrnoush abdinian on 12.06.22.
@@ -17,8 +18,7 @@ class AddExperimentDescriptionViewController: UIViewController {
     private lazy var tableView = UITableView().autoLayoutView()
     public var eventHandler: ((Event) -> Void)?
     public enum Event{
-        //change  case showAllDescriptionText(ok: Bool)
-       case showAllDescriptionText(text: String)
+       case askAllDescriptionText(text: String)
     }
     private var experimentDetails: ExperimentDetails
     
@@ -47,14 +47,9 @@ extension AddExperimentDescriptionViewController {
     private func eventHandlers() {
         eventHandler = { [weak self] events in
             switch events {
-                /* change case .showAllDescriptionText(let ok):
-                let vc = ExperimentDescription(ok:ok) */
-            case .showAllDescriptionText(let text):
-                let vc = ExperimentDescription(text : text)
+            case .askAllDescriptionText(let text):
+                let vc = ExperimentDescriptionViewController(text : text)
                 self?.navigationController?.pushViewController(vc, animated: true)
-                
-                 
-                
             }
         }
      }
@@ -99,10 +94,7 @@ extension AddExperimentDescriptionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let numberOfSelectedCell = indexPath.row
         let text = experimentDetails.text[numberOfSelectedCell]
-        //Change
-        //let ok = true
-        //Change eventHandler?(.showAllDescriptionText(ok: ok))
-        eventHandler?(.showAllDescriptionText(text: text))
+        eventHandler?(.askAllDescriptionText(text: text))
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -124,7 +116,6 @@ extension AddExperimentDescriptionViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         tableBackgroundView.backgroundColor = .systemBackground
         
-        // print(experimentDescriptions)
     }
     
     func setupLayout() {

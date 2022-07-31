@@ -1,5 +1,6 @@
 //
 //  DashboardViewController.swift
+//  List of reserved tests
 //  Laboratory
 //
 //  Created by mehrnoush abdinian on 12.06.22.
@@ -9,10 +10,12 @@ import Foundation
 import SwiftFoundation
 import UIKit
 
-class DashboardViewController: ViewController {
+class DashboardViewController: UIViewController {
     
-    //private lazy var newExperimentButton = UIBarButtonItem()
+    private lazy var newExperimentButton = UIBarButtonItem()
     private lazy var experimentsListTableView = ExperimentsListTableView().autoLayoutView()
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         eventHandlers()
@@ -27,6 +30,7 @@ class DashboardViewController: ViewController {
 extension DashboardViewController {
     
     private func eventHandlers() {
+        
         experimentsListTableView.eventHandler = { [weak self] events in
             switch events {
             case .askExperimentDetail(let details):
@@ -37,25 +41,36 @@ extension DashboardViewController {
         }
      }
 }
-
+//MARK: -Button
+extension DashboardViewController {
+    
+    @objc func pressed(sender: UIBarButtonItem) {
+        let vc = AddNewExperimentViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
 
 //MARK: -Setup
 extension DashboardViewController {
     
-    func setupDefault() {
+    func setupDefaults() {
     }
      
-    override func setupUI() {
+    private func setupUI() {
         title = "Experiments"
-       // navigationController?.navigationBar.prefersLargeTitles = true
-       // navigationItem.rightBarButtonItems = [newExperimentButton]
-       // newExperimentButton.image = UIImage(systemName: "plus")
-        //newExperimentButton.style = .plain
+        navigationController?.navigationBar.prefersLargeTitles = true
+       navigationItem.rightBarButtonItems = [newExperimentButton]
+        newExperimentButton.image = UIImage(systemName: "plus")
+        newExperimentButton.style = .plain
+        newExperimentButton.target = self
+        newExperimentButton.action = #selector(pressed(sender:))
         view.addSubview(experimentsListTableView)
         view.backgroundColor = .secondarySystemBackground
+        //newExperimentButton.addTarget(self, action: #selector(pressed), for: .touchUpInside)
+       
     }
     
-    override func setupLayout() {
+    private func setupLayout() {
     //LinkTableViewCell
     experimentsListTableView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
         experimentsListTableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true

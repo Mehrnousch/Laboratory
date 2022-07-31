@@ -1,5 +1,5 @@
 //
-//  ExperimentDescription.swift
+//  ExperimentDescriptionViewController.swift
 //  Laboratory
 //
 //  Created by mehrnoush abdinian on 19.07.22.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ExperimentDescription: UIViewController {
+class ExperimentDescriptionViewController: UIViewController {
     
     private lazy var experimentDescriptionTextView = UITextView().autoLayoutView()
     
@@ -20,15 +20,9 @@ class ExperimentDescription: UIViewController {
         setupLayout()
         
     }
-    /* change
-    private var ok : Bool
-    init(ok: Bool) {
-        self.ok = ok
-           super.init(nibName: nil, bundle: nil)
-       }
-     */
-   
+  
      private var text : String
+    
      init(text: String) {
          self.text = text
             super.init(nibName: nil, bundle: nil)
@@ -41,15 +35,22 @@ class ExperimentDescription: UIViewController {
 }
 // MARK: - Setup Default
 
-extension ExperimentDescription {
+extension ExperimentDescriptionViewController {
     
+    public func getText(text: String) {
+        
+    }
+    
+}
+// MARK: - SetupDefault
+extension ExperimentDescriptionViewController {
     func setupDefault() {
         
     }
 }
 // MARK: - Setup UI
 
-extension ExperimentDescription {
+extension ExperimentDescriptionViewController {
     func setupUI() {
         view.addSubviews(experimentDescriptionTextView)
         view.backgroundColor = .secondarySystemBackground
@@ -64,7 +65,7 @@ extension ExperimentDescription {
 
 // MARK: - Setup Layout
 
-extension ExperimentDescription {
+extension ExperimentDescriptionViewController {
     private func setupLayout() {
         experimentDescriptionTextView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
         experimentDescriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
