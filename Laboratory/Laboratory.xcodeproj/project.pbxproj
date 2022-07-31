@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		567F3CB52896ED3A002B5AA4 /* ReservationViewControllerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F3CB42896ED3A002B5AA4 /* ReservationViewControllerTableView.swift */; };
+		567F3CB52896ED3A002B5AA4 /* ReservationcontrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F3CB42896ED3A002B5AA4 /* ReservationcontrollViewController.swift */; };
 		567F3CB72896F740002B5AA4 /* Protokol.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 567F3CB62896F740002B5AA4 /* Protokol.pdf */; };
 		567F3CB92896F791002B5AA4 /* Sicherheit.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 567F3CB82896F791002B5AA4 /* Sicherheit.pdf */; };
 		568E1FB628806E9C00EBF3C5 /* ExperimentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */; };
@@ -69,7 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		567F3CB42896ED3A002B5AA4 /* ReservationViewControllerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewControllerTableView.swift; sourceTree = "<group>"; };
+		567F3CB42896ED3A002B5AA4 /* ReservationcontrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationcontrollViewController.swift; sourceTree = "<group>"; };
 		567F3CB62896F740002B5AA4 /* Protokol.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Protokol.pdf; sourceTree = "<group>"; };
 		567F3CB82896F791002B5AA4 /* Sicherheit.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Sicherheit.pdf; sourceTree = "<group>"; };
 		568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentData.swift; sourceTree = "<group>"; };
@@ -261,7 +261,7 @@
 				56E2FC7A287FFFCF0077F0A2 /* AddExperimentDescriptionViewController.swift */,
 				568E1FC028872B7A00EBF3C5 /* ExperimentDescriptionViewController.swift */,
 				56FDA5FD2889CD9D0068BB7B /* LaboratoryReservation.swift */,
-				567F3CB42896ED3A002B5AA4 /* ReservationViewControllerTableView.swift */,
+				567F3CB42896ED3A002B5AA4 /* ReservationcontrollViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -536,7 +536,7 @@
 				56FB403328563A9700FE6E6B /* InputFieldView.swift in Sources */,
 				56FB3FF72856346400FE6E6B /* SceneDelegate.swift in Sources */,
 				56E2FC71287F68390077F0A2 /* AddExperimentDescriptionTableViewCell.swift in Sources */,
-				567F3CB52896ED3A002B5AA4 /* ReservationViewControllerTableView.swift in Sources */,
+				567F3CB52896ED3A002B5AA4 /* ReservationcontrollViewController.swift in Sources */,
 				56FB416D287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift in Sources */,
 				56FB403128563A3E00FE6E6B /* LoginView.swift in Sources */,
 				56FB403828563C0A00FE6E6B /* BannerStatusPresenter.swift in Sources */,

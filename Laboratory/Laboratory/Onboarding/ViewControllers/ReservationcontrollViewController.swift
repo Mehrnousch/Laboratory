@@ -10,7 +10,7 @@ import Foundation
 import SwiftFoundation
 import UIKit
 
-class ReservationViewControllerTableView: UIViewController {
+class ReservationcontrollViewController: UIViewController {
     
     private lazy var label = UILabel().autoLayoutView()
 
@@ -26,7 +26,7 @@ class ReservationViewControllerTableView: UIViewController {
 
 
 // MARK: - Setup UI
-extension ReservationViewControllerTableView {
+extension ReservationcontrollViewController {
     
     func setupDefault() {
        
