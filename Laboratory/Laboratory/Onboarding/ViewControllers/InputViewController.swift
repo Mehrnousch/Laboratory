@@ -12,6 +12,7 @@ public class InputsViewController: ViewController {
     
     enum Event {
         case succeededLogin(authentication: LoginAuthentication)
+        case presentRegisterationVC
     }
     
     var eventHandler: ((Event) -> Void)?
@@ -32,6 +33,9 @@ extension InputsViewController {
             switch events {
             case .askForLogin(let authentication):
                 this.eventHandler?(.succeededLogin(authentication: authentication))
+                
+            case .presentRegisterationVC:
+                this.eventHandler?(.presentRegisterationVC)
             }
         }
     }

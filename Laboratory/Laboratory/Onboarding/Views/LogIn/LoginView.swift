@@ -13,6 +13,7 @@ public class LoginView: View {
     
     enum Event {
         case askForLogin(authentication: LoginAuthentication)
+        case presentRegisterationVC
     }
     
     var eventHandler: ((Event) -> Void)?
@@ -22,9 +23,9 @@ public class LoginView: View {
     private lazy var mainStackView = StackView(axis: .vertical).autoLayoutView()
     private lazy var emailTextField = InputFieldView(modelType: .email).autoLayoutView()
     private lazy var passwordTextField = InputFieldView(modelType: .password).autoLayoutView()
-    private lazy var loginButton = Button(title: "Login", radius: 12, height: 44, color: accentColor!, tintColor: .white).autoLayoutView()
+    private lazy var loginButton = Button(title: "Anmelden", radius: 12, height: 44, color: accentColor!, tintColor: .white).autoLayoutView()
+    private lazy var registerButton = Button(title: "Ein Konto erstellen", radius: 12, height: 44, color: .systemGray, tintColor: .white).autoLayoutView()
     private lazy var forgetPasswordButton = UIButton().autoLayoutView()
-    
     private lazy var bannerPresenter = BannerStatusPresenter()
     
     private lazy var email = ""
@@ -36,6 +37,10 @@ public class LoginView: View {
 extension LoginView {
     
     public override func setupHandlers() {
+        
+        registerButton.setTouchUpInsideHandler(self) {
+            $0.eventHandler?(.presentRegisterationVC)
+        }
         
         emailTextField.eventHandler = { [weak self] events in
             guard let this = self else { return }
@@ -68,6 +73,7 @@ extension LoginView {
             $0.passwordTextField.dismissKeyboard()
             $0.validateDataForLogin()
         }
+       
     }
     
 }
@@ -153,7 +159,7 @@ extension LoginView {
 extension LoginView {
     
     public override func setupStackViews() {
-        mainStackView.addArrangedSubviews(emailTextField, passwordTextField, loginButton,  forgetPasswordButton)
+        mainStackView.addArrangedSubviews(emailTextField, passwordTextField, loginButton, registerButton, forgetPasswordButton)
         mainStackView.spacing = 10
         mainStackView.setCustomSpacing(20, after: loginButton)
         
@@ -165,9 +171,10 @@ extension LoginView {
         addSubviews(mainStackView)
         forgetPasswordButton.titleColor = UIColor.purple
         forgetPasswordButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        forgetPasswordButton.isHidden = true
+        forgetPasswordButton.isHidden = false
         
         addShadowToContainer(view: loginButton, userInterfaceStyle: traitCollection.userInterfaceStyle)
+        
     }
     
     public override func setupLayout() {

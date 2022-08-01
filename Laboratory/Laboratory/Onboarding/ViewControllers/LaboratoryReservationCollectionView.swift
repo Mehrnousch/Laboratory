@@ -1,5 +1,5 @@
 //
-//  LaboratoryReservation.swift
+//  LaboratoryReservationCollectionView.swift
 //  Laboratory
 //
 //  Created by mehrnoush abdinian on 21.07.22.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftFoundation
 import UIKit
 
-class LaboratoryReservation: UIViewController {
+class LaboratoryReservationCollectionView: UIViewController {
     let dateCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     let dateList = ["01.02.2022","02.02.2022","03.02.2022","04.02.2022","05.02.2022","06.02.2022","07.02.2022","08.02.2022","09.02.2022", "10.02.2022", "11.02.2022"]
     let timeList = ["08:00","09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00"]
@@ -25,7 +25,7 @@ class LaboratoryReservation: UIViewController {
 }
 
 //MARK: -CollectionViewDataSource
-extension LaboratoryReservation: UICollectionViewDataSource {
+extension LaboratoryReservationCollectionView: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
        
@@ -90,11 +90,11 @@ extension LaboratoryReservation: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
-extension LaboratoryReservation: UICollectionViewDelegate {
+extension LaboratoryReservationCollectionView: UICollectionViewDelegate {
         
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
                 print("User tapped on item in cell \(indexPath)")
-            let vc = ReservationViewControllerTableView()
+            let vc = ReservationControllViewController()
             self.navigationController?.pushViewController(vc, animated: true)
                 
             }
@@ -103,7 +103,7 @@ extension LaboratoryReservation: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension LaboratoryReservation: UICollectionViewDelegateFlowLayout {
+extension LaboratoryReservationCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
     UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       let padding: CGFloat =  200
@@ -113,7 +113,7 @@ extension LaboratoryReservation: UICollectionViewDelegateFlowLayout {
     
 }
 //MARK: -Setup
-extension LaboratoryReservation {
+extension LaboratoryReservationCollectionView {
     
     func setupDefaults() {
         dateCollectionView.register(LaboratorReservationcollectionViewCell.self, forCellWithReuseIdentifier: "timeCell")

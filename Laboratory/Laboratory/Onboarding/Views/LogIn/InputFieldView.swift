@@ -94,7 +94,7 @@ extension InputFieldView {
     
     /// Add placeholder for the email and password TextField
     private func addPlaceholder() {
-        inputTextField.placeholder = modelType == .email ? "Email address " : "Password"
+        inputTextField.placeholder = modelType == .email ? "E-Mail Addresse " : "Passwort"
     }
     
     
@@ -242,6 +242,7 @@ extension InputFieldView {
         addPadding()
         setDoneOnKeyboard(button: doneButton)
         configureLabel()
+        
     }
     
     public override func setupLayout() {

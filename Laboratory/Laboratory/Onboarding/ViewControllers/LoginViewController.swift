@@ -63,6 +63,26 @@ extension LoginViewController {
            present(nc, animated: true)
 
        }
+    
+    
+    private func presentRegisterationViewController() {
+        lazy var vc = RegisterViewController()
+        lazy var nc = UINavigationController(rootViewController: vc)
+        
+        vc.eventHandler = { [weak self] events in
+            guard let this = self else { return }
+            
+            switch events {
+                
+            case .dissmissed:
+                this.presentInputsVC()
+            }
+        }
+        
+        nc.modalPresentationStyle = .popover
+        present(nc, animated: true)
+
+    }
 
 }
 
@@ -79,6 +99,10 @@ extension LoginViewController {
             case .succeededLogin(let authentication):
                 this.dismiss(animated: true)
                 this.presentDashboardViewController()
+                
+            case .presentRegisterationVC:
+                this.dismiss(animated: true)
+                this.presentRegisterationViewController()
             }
         }
     }

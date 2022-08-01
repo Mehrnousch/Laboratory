@@ -55,7 +55,7 @@ extension AddNewExperimentViewController: UITableViewDataSource {
 extension AddNewExperimentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = LaboratoryReservation()
+        let vc = LaboratoryReservationCollectionView()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
