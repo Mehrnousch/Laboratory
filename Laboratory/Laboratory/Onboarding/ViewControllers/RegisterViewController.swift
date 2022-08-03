@@ -8,7 +8,6 @@
 
 
 import Foundation
-import Foundation
 import SwiftFoundation
 import UIKit
 
@@ -29,6 +28,7 @@ class RegisterViewController: UIViewController {
     private lazy var passwordLabel = UILabel().autoLayoutView()
     private lazy var passwordTextField = UITextField().autoLayoutView()
     private lazy var registerButton = UIButton().autoLayoutView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDefaults()
@@ -66,16 +66,7 @@ extension RegisterViewController {
         container.translatesAutoresizingMaskIntoConstraints = false
         navigationController?.navigationBar.prefersLargeTitles = true
 
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        container.addSubview(label)
-//        label.textColor = .label
-//        label.font = UIFont(name:"HelveticaNeue", size: 16)
-//        label.textAlignment = .left
-//        label.text = "Registrierung mein Konto"
-//        label.backgroundColor = .secondarySystemBackground
-//        label.layer.cornerRadius = 5
-//        label.numberOfLines = 0
-       
+
        
         //usernameLabel
         container.addSubview(usernameLabel)
@@ -125,6 +116,8 @@ extension RegisterViewController {
         registerButton.backgroundColor = UIColor.purple
         registerButton.tintColor = .white
         registerButton.title = "Registrieren"
+        
+        
     }
     
     private func setupLayout() {

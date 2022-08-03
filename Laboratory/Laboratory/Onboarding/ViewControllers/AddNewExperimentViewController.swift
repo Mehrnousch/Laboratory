@@ -9,10 +9,11 @@ import Foundation
 import UIKit
 
 class AddNewExperimentViewController: UIViewController {
-    
+
+//  laborName
     private lazy var tableView = UITableView().autoLayoutView()
     private lazy var laborList = ["Labor1","Labor2","Labor3","Labor4"]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDefault()
@@ -21,6 +22,7 @@ class AddNewExperimentViewController: UIViewController {
         
     }
 }
+
 // MARK: - TableView Data source
 
 extension AddNewExperimentViewController: UITableViewDataSource {
@@ -55,8 +57,10 @@ extension AddNewExperimentViewController: UITableViewDataSource {
 extension AddNewExperimentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = LaboratoryReservationCollectionView()
+        let vc = SelectSlotCollectionView()
         self.navigationController?.pushViewController(vc, animated: true)
+       
+
     }
 }
 // MARK: - Setup Default

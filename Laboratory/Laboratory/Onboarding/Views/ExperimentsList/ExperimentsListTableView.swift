@@ -10,19 +10,18 @@ import UIKit
 
 class ExperimentsListTableView: UIView {
     
+    public var eventHandler: ((Event) -> Void)?
+    
     public enum Event{
         case askExperimentDetail(experiment: ExperimentDetails)
     }
     
-    public var eventHandler: ((Event) -> Void)?
-    
-    
     private lazy var tableView = UITableView().autoLayoutView()
     private lazy var tableBackgroundView = TableBackgroundView()
     let experimentsList = [
-        ExperimentDetails(expermintId: 232, experimentName: "azmayesh 1", experimentLabor: "Mechanical testing",experimentDate:"02.05.2022", text: [text1, text2, text3]),
-        ExperimentDetails(expermintId: 213, experimentName: "azmayesh 2", experimentLabor: "Chemical  Lab", experimentDate: "03.05.2022", text: [text1, text4, text5, text6]),
-        ExperimentDetails(expermintId: 532, experimentName: "azmayesh 3", experimentLabor: "Biolab", experimentDate: "04.05.2022", text: [text7, text8, text9])
+        ExperimentDetails(expermintId: 232, experimentName: "Experiment 1", experimentLabor: "Mechanical testing",experimentDate:"02.05.2022", text: [text1, text2, text3]),
+        ExperimentDetails(expermintId: 213, experimentName: "Experiment 2", experimentLabor: "Chemical  Lab", experimentDate: "03.05.2022", text: [text1, text4, text5, text6]),
+        ExperimentDetails(expermintId: 532, experimentName: "Experiment 3", experimentLabor: "Biolab", experimentDate: "04.05.2022", text: [text7, text8, text9])
     ]
     
     

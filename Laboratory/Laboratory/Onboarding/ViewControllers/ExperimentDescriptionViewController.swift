@@ -12,7 +12,8 @@ import UIKit
 class ExperimentDescriptionViewController: UIViewController {
     
     private lazy var experimentDescriptionTextView = UITextView().autoLayoutView()
-    
+    private var text : String
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDefault()
@@ -21,7 +22,6 @@ class ExperimentDescriptionViewController: UIViewController {
         
     }
   
-     private var text : String
     
      init(text: String) {
          self.text = text
@@ -33,25 +33,17 @@ class ExperimentDescriptionViewController: UIViewController {
 
     }
 }
-// MARK: - Setup Default
 
-extension ExperimentDescriptionViewController {
-    
-    public func getText(text: String) {
-        
-    }
-    
-}
 // MARK: - SetupDefault
 extension ExperimentDescriptionViewController {
+    
     func setupDefault() {
-        
     }
 }
 // MARK: - Setup UI
-
 extension ExperimentDescriptionViewController {
     func setupUI() {
+        
         view.addSubviews(experimentDescriptionTextView)
         view.backgroundColor = .secondarySystemBackground
         experimentDescriptionTextView.translatesAutoresizingMaskIntoConstraints = false
@@ -67,6 +59,7 @@ extension ExperimentDescriptionViewController {
 
 extension ExperimentDescriptionViewController {
     private func setupLayout() {
+        
         experimentDescriptionTextView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
         experimentDescriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
         experimentDescriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true

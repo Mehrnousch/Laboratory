@@ -9,6 +9,7 @@ import Foundation
 import Foundation
 import SwiftFoundation
 import UIKit
+import SwiftUI
 
 class ReservationControllViewController: UIViewController {
     private lazy var securityContainer = UIView().autoLayoutView()
@@ -19,13 +20,13 @@ class ReservationControllViewController: UIViewController {
     private lazy var protocolbuttonLabel = UILabel().autoLayoutView()
     private lazy var security‌ButtonLabel = UILabel().autoLayoutView()
     private lazy var unchecked = true
-    private lazy var checkboxButtonResponsiblePerson = UIButton().autoLayoutView()
-    private lazy var checkboxButtonUserAgreement = UIButton().autoLayoutView()
     private lazy var userAgreementView = UIView().autoLayoutView()
-    private lazy var ResponsiblePersonView = UIView().autoLayoutView()
+    private lazy var responsiblePersonView = UIView().autoLayoutView()
+    private lazy var responsiblePersonLabel = UILabel().autoLayoutView()
+    private lazy var checkboxResponsiblePerson = UIButton().autoLayoutView()
     private lazy var userAgreementLabel = UILabel().autoLayoutView()
-    private lazy var ResponsiblePersonLabel = UILabel().autoLayoutView()
-
+    private lazy var checkboxUserAgreement = UIButton.init(type: .custom)
+    private lazy var submitButton = UIButton().autoLayoutView()
 
 
     override func viewDidLoad() {
@@ -36,8 +37,31 @@ class ReservationControllViewController: UIViewController {
         
     }
 }
-
-// MARK: - Setup UI
+//MARK: -Button
+extension ReservationControllViewController {
+    
+    @objc func pressed(sender: UIBarButtonItem) {
+        let vc = successfullyReservation()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+//MARK: -checkboxUserAgreement
+extension ReservationControllViewController {
+    
+@objc func toggleCheckboxSelectionUserAgreement() {
+    checkboxUserAgreement.isSelected = !checkboxUserAgreement.isSelected
+}
+    
+}
+//MARK: -checkboxResponsiblePerson
+extension ReservationControllViewController {
+    
+@objc func toggleCheckboxSelectionResponsiblePerson() {
+    checkboxResponsiblePerson.isSelected = !checkboxResponsiblePerson.isSelected
+}
+    
+}
+// MARK: - tick
 extension ReservationControllViewController {
     
 @IBAction func tick(sender: UIButton) {
@@ -98,19 +122,49 @@ extension ReservationControllViewController {
         //userAgreementView
         view.addSubview(userAgreementView)
         userAgreementView.translatesAutoresizingMaskIntoConstraints = false
+        
+        //userAgreementLabel
         userAgreementView.addSubview(userAgreementLabel)
         userAgreementLabel.translatesAutoresizingMaskIntoConstraints = false
         userAgreementLabel.numberOfLines = 0
         userAgreementLabel.text = "Ich habe die Protokolle und Sicherheitsinformationen gelesen und stimme ihnen zu."
+        
+        // checkboxUserAgreement
+        responsiblePersonView.addSubview(checkboxUserAgreement)
+        checkboxUserAgreement.translatesAutoresizingMaskIntoConstraints = false
+        checkboxUserAgreement.setImage(UIImage.init(named: "squarr"), for: .normal)
+        checkboxUserAgreement.setImage(UIImage.init(named: "checkmark.square"), for: .selected)
+        checkboxUserAgreement.addTarget(self, action: #selector(self.toggleCheckboxSelectionUserAgreement), for: .touchUpInside)
 
-        //ResponsiblePersonView
-        view.addSubview(ResponsiblePersonView)
-        ResponsiblePersonView.translatesAutoresizingMaskIntoConstraints = false
-        ResponsiblePersonView.addSubview(ResponsiblePersonLabel)
-        ResponsiblePersonLabel.translatesAutoresizingMaskIntoConstraints = false
-        ResponsiblePersonLabel.numberOfLines = 0
-        ResponsiblePersonLabel.text = "Ich brauche die Anwesenheit der verantwortlichen Person im Labor."
+        //responsiblePersonView
+        view.addSubview(responsiblePersonView)
+        responsiblePersonView.translatesAutoresizingMaskIntoConstraints = false
+        
+        //responsiblePersonLabel
+        responsiblePersonView.addSubview(responsiblePersonLabel)
+        responsiblePersonLabel.translatesAutoresizingMaskIntoConstraints = false
+        responsiblePersonLabel.numberOfLines = 0
+        responsiblePersonLabel.text = "Ich brauche die Anwesenheit der verantwortlichen Person im Labor."
+        
+        // checkboxResponsiblePerson
+        responsiblePersonView.addSubview(checkboxResponsiblePerson)
+        checkboxResponsiblePerson.translatesAutoresizingMaskIntoConstraints = false
+        checkboxResponsiblePerson.setImage(UIImage.init(named: "squarr"), for: .normal)
+        checkboxResponsiblePerson.setImage(UIImage.init(named: "checkmark.square"), for: .selected)
+        checkboxResponsiblePerson.addTarget(self, action: #selector(self.toggleCheckboxSelectionResponsiblePerson), for: .touchUpInside)
+        
+        
 
+        //submitButton
+        view.addSubview(submitButton)
+        submitButton.translatesAutoresizingMaskIntoConstraints = false
+        submitButton.title = "einreichen"
+        submitButton.setCornerRadius(10)
+        submitButton.backgroundColor = .systemGray2
+        submitButton.tintColor = .white
+        submitButton.addTarget(self, action: #selector(pressed), for: .touchUpInside)
+        
+        
     }
     
     func setupLayout() {
@@ -170,17 +224,36 @@ extension ReservationControllViewController {
         userAgreementLabel.topAnchor.constraint(equalTo: userAgreementView.topAnchor, constant: 10).isActive = true
         userAgreementLabel.leadingAnchor.constraint(equalTo: userAgreementView.leadingAnchor, constant: 64).isActive = true
         userAgreementLabel.trailingAnchor.constraint(equalTo: userAgreementView.trailingAnchor, constant: -10).isActive = true
+        //checkboxUserAgreement
+//        checkboxUserAgreement.centerYAnchor.constraint(equalTo: userAgreementView.centerYAnchor).isActive = true
+        checkboxUserAgreement.topAnchor.constraint(equalTo: userAgreementView.topAnchor, constant: 10).isActive = true
+        checkboxUserAgreement.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        checkboxUserAgreement.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        checkboxUserAgreement.leadingAnchor.constraint(equalTo: userAgreementView.leadingAnchor, constant: 10).isActive = true
         
         
         //ResponsiblePersonView
-        ResponsiblePersonView.topAnchor.constraint(equalTo: userAgreementLabel.bottomAnchor, constant: 20).isActive = true
-        ResponsiblePersonView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        ResponsiblePersonView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        responsiblePersonView.topAnchor.constraint(equalTo: userAgreementLabel.bottomAnchor, constant: 20).isActive = true
+        responsiblePersonView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        responsiblePersonView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
         //ResponsiblePersonLabel
-        ResponsiblePersonLabel.topAnchor.constraint(equalTo: ResponsiblePersonView.topAnchor, constant: 10).isActive = true
-        ResponsiblePersonLabel.leadingAnchor.constraint(equalTo: ResponsiblePersonView.leadingAnchor, constant: 64).isActive = true
-        ResponsiblePersonLabel.trailingAnchor.constraint(equalTo: ResponsiblePersonView.trailingAnchor, constant: -10).isActive = true
+        responsiblePersonLabel.topAnchor.constraint(equalTo: responsiblePersonView.topAnchor, constant: 10).isActive = true
+        responsiblePersonLabel.leadingAnchor.constraint(equalTo: responsiblePersonView.leadingAnchor, constant: 64).isActive = true
+        responsiblePersonLabel.trailingAnchor.constraint(equalTo: responsiblePersonView.trailingAnchor, constant: -10).isActive = true
+        
+        //checkboxResponsiblePerson
+//        checkboxUserAgreement.centerYAnchor.constraint(equalTo: userAgreementView.centerYAnchor).isActive = true
+        checkboxResponsiblePerson.topAnchor.constraint(equalTo: responsiblePersonView.topAnchor, constant: 10).isActive = true
+        checkboxResponsiblePerson.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        checkboxResponsiblePerson.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        checkboxResponsiblePerson.leadingAnchor.constraint(equalTo: responsiblePersonView.leadingAnchor, constant: 10).isActive = true
+        
+        //submitButton
+        submitButton.topAnchor.constraint(equalTo: responsiblePersonLabel.bottomAnchor, constant: 50).isActive = true
+        submitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        submitButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
 
     }
 }

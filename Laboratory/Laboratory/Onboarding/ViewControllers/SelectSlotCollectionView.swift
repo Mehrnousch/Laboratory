@@ -1,5 +1,5 @@
 //
-//  LaboratoryReservationCollectionView.swift
+//  SelectSlotCollectionView.swift
 //  Laboratory
 //
 //  Created by mehrnoush abdinian on 21.07.22.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftFoundation
 import UIKit
 
-class LaboratoryReservationCollectionView: UIViewController {
+class SelectSlotCollectionView: UIViewController {
     let dateCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     let dateList = ["01.02.2022","02.02.2022","03.02.2022","04.02.2022","05.02.2022","06.02.2022","07.02.2022","08.02.2022","09.02.2022", "10.02.2022", "11.02.2022"]
     let timeList = ["08:00","09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00"]
@@ -25,7 +25,7 @@ class LaboratoryReservationCollectionView: UIViewController {
 }
 
 //MARK: -CollectionViewDataSource
-extension LaboratoryReservationCollectionView: UICollectionViewDataSource {
+extension SelectSlotCollectionView: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
        
@@ -90,7 +90,7 @@ extension LaboratoryReservationCollectionView: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
-extension LaboratoryReservationCollectionView: UICollectionViewDelegate {
+extension SelectSlotCollectionView: UICollectionViewDelegate {
         
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
                 print("User tapped on item in cell \(indexPath)")
@@ -103,7 +103,7 @@ extension LaboratoryReservationCollectionView: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension LaboratoryReservationCollectionView: UICollectionViewDelegateFlowLayout {
+extension SelectSlotCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
     UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       let padding: CGFloat =  200
@@ -113,19 +113,14 @@ extension LaboratoryReservationCollectionView: UICollectionViewDelegateFlowLayou
     
 }
 //MARK: -Setup
-extension LaboratoryReservationCollectionView {
+extension SelectSlotCollectionView {
     
     func setupDefaults() {
         dateCollectionView.register(LaboratorReservationcollectionViewCell.self, forCellWithReuseIdentifier: "timeCell")
       dateCollectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
-       
-        
         
     }
-
-
-    
-     
+ 
     private func setupUI() {
         
         if let flowLayout = dateCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
