@@ -13,6 +13,7 @@
 		567F3CBB2896FD33002B5AA4 /* pdf.png in Resources */ = {isa = PBXBuildFile; fileRef = 567F3CBA2896FD33002B5AA4 /* pdf.png */; };
 		567F3CBD28983209002B5AA4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F3CBC28983209002B5AA4 /* RegisterViewController.swift */; };
 		567F3CBF28988DB0002B5AA4 /* successfullyReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F3CBE28988DB0002B5AA4 /* successfullyReservation.swift */; };
+		567F3CC1289ACF9F002B5AA4 /* AddExperimentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F3CC0289ACF9F002B5AA4 /* AddExperimentDescription.swift */; };
 		568E1FB628806E9C00EBF3C5 /* ExperimentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */; };
 		568E1FBC288332EE00EBF3C5 /* Tempfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FBB288332EE00EBF3C5 /* Tempfile.swift */; };
 		568E1FC128872B7A00EBF3C5 /* ViewFullDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FC028872B7A00EBF3C5 /* ViewFullDescriptionViewController.swift */; };
@@ -78,6 +79,7 @@
 		567F3CBA2896FD33002B5AA4 /* pdf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdf.png; sourceTree = "<group>"; };
 		567F3CBC28983209002B5AA4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		567F3CBE28988DB0002B5AA4 /* successfullyReservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = successfullyReservation.swift; sourceTree = "<group>"; };
+		567F3CC0289ACF9F002B5AA4 /* AddExperimentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExperimentDescription.swift; sourceTree = "<group>"; };
 		568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentData.swift; sourceTree = "<group>"; };
 		568E1FBB288332EE00EBF3C5 /* Tempfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tempfile.swift; sourceTree = "<group>"; };
 		568E1FC028872B7A00EBF3C5 /* ViewFullDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFullDescriptionViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				56FDA5FD2889CD9D0068BB7B /* SelectSlotCollectionView.swift */,
 				567F3CB42896ED3A002B5AA4 /* ReservationControllViewController.swift */,
 				567F3CBE28988DB0002B5AA4 /* successfullyReservation.swift */,
+				567F3CC0289ACF9F002B5AA4 /* AddExperimentDescription.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				56FB4168287C875C00FE6E6B /* ExperimentsListTableView.swift in Sources */,
 				56FB403328563A9700FE6E6B /* InputFieldView.swift in Sources */,
 				56FB3FF72856346400FE6E6B /* SceneDelegate.swift in Sources */,
+				567F3CC1289ACF9F002B5AA4 /* AddExperimentDescription.swift in Sources */,
 				56E2FC71287F68390077F0A2 /* ExperimentDescriptionTableViewCell.swift in Sources */,
 				567F3CB52896ED3A002B5AA4 /* ReservationControllViewController.swift in Sources */,
 				56FB416D287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift in Sources */,

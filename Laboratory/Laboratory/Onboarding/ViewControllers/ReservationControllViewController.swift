@@ -25,7 +25,7 @@ class ReservationControllViewController: UIViewController {
     private lazy var responsiblePersonLabel = UILabel().autoLayoutView()
     private lazy var checkboxResponsiblePerson = UIButton().autoLayoutView()
     private lazy var userAgreementLabel = UILabel().autoLayoutView()
-    private lazy var checkboxUserAgreement = UIButton.init(type: .custom)
+    private lazy var checkboxUserAgreement = UIButton(type: .custom).autoLayoutView()
     private lazy var submitButton = UIButton().autoLayoutView()
     public var eventHandler: ((Event) -> Void)?
     public enum Event{
@@ -42,9 +42,12 @@ class ReservationControllViewController: UIViewController {
     }
     
     private var laboratoryName : String
-   
-    init(laboratoryName: String) {
+    private var selectedDate : String
+    private var selectedTime : String
+    init(laboratoryName: String, selectedTime : String, selectedDate : String) {
         self.laboratoryName = laboratoryName
+        self.selectedTime = selectedTime
+        self.selectedDate = selectedDate
            super.init(nibName: nil, bundle: nil)
        }
     required init?(coder: NSCoder) {
@@ -58,7 +61,7 @@ extension ReservationControllViewController {
     @objc func pressed(sender: UIBarButtonItem) {
         let laboratoryName = laboratoryName
         eventHandler?(.askLaborName(laboratoryName : laboratoryName))
-        let vc = successfullyReservation(laboratoryName: laboratoryName)
+        let vc = successfullyReservation(laboratoryName: laboratoryName,selectedTime : selectedTime, selectedDate : selectedDate )
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -102,7 +105,7 @@ extension ReservationControllViewController {
     
     func setupUI() {
         view.backgroundColor = .secondarySystemBackground
-        title = laboratoryName
+        title = "\(laboratoryName) am \(selectedDate) um \(selectedTime)"
         view.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -149,8 +152,8 @@ extension ReservationControllViewController {
         // checkboxUserAgreement
         responsiblePersonView.addSubview(checkboxUserAgreement)
         checkboxUserAgreement.translatesAutoresizingMaskIntoConstraints = false
-        checkboxUserAgreement.setImage(UIImage.init(named: "squarr"), for: .normal)
-        checkboxUserAgreement.setImage(UIImage.init(named: "checkmark.square"), for: .selected)
+        checkboxUserAgreement.image = UIImage(systemName: "squarr")
+//        checkboxUserAgreement.setImage(UIImage.init(named: "checkmark.square"), for: .selected)
         checkboxUserAgreement.addTarget(self, action: #selector(self.toggleCheckboxSelectionUserAgreement), for: .touchUpInside)
 
         //responsiblePersonView

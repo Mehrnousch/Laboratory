@@ -16,7 +16,7 @@ class SelectSlotCollectionView: UIViewController {
     let timeList = ["08:00","09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00"]
     public var eventHandler: ((Event) -> Void)?
     public enum Event{
-       case askLaborName(laboratoryName: String)
+        case askLaborInfo(laboratoryName: String, selectedTime: String, selectedDate: String)
     }
     
     override func viewDidLoad() {
@@ -106,9 +106,13 @@ extension SelectSlotCollectionView: UICollectionViewDelegate {
         
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let laboratoryName = laboratoryName
-            eventHandler?(.askLaborName(laboratoryName : laboratoryName))
+            let selectedTime = timeList[indexPath.row]
+            let selectedDate = dateList[indexPath.row]
+            eventHandler?(.askLaborInfo(laboratoryName : laboratoryName, selectedTime : selectedTime, selectedDate : selectedDate))
                 print("User tapped on item in cell \(indexPath)")
-            let vc = ReservationControllViewController(laboratoryName : laboratoryName)
+           
+          
+            let vc = ReservationControllViewController(laboratoryName : laboratoryName, selectedTime : selectedTime, selectedDate : selectedDate)
             self.navigationController?.pushViewController(vc, animated: true)
              
             }

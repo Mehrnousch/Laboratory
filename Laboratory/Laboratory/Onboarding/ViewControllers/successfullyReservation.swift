@@ -19,9 +19,13 @@ class successfullyReservation: UIViewController {
         setupLayout()
     }
     private var laboratoryName : String
+    private var selectedTime : String
+    private var selectedDate : String
    
-    init(laboratoryName: String) {
+    init(laboratoryName: String, selectedTime: String, selectedDate: String) {
         self.laboratoryName = laboratoryName
+        self.selectedTime = selectedTime
+        self.selectedDate = selectedDate
            super.init(nibName: nil, bundle: nil)
        }
     required init?(coder: NSCoder) {
@@ -50,7 +54,7 @@ extension successfullyReservation {
         title =  laboratoryName
         view.addSubview(label)
         label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
-        label.text = "Sie haben das \(laboratoryName)  am 12. August 2022 um 13:00 Uhr erfolgreich reserviert."
+        label.text = "Sie haben das \(laboratoryName)  am \(selectedDate) um \(selectedTime) Uhr erfolgreich reserviert."
         label.numberOfLines = 0
 
 

@@ -13,6 +13,8 @@ import SwiftFoundation
 import UIKit
 
 class ExperimentDescriptionViewController: UIViewController {
+    
+    private lazy var AddNewDescriptionButton = UIBarButtonItem()
     private lazy var tableBackgroundView = TableBackgroundView()
     private lazy var container = UIView().autoLayoutView()
     private lazy var tableView = UITableView().autoLayoutView()
@@ -38,6 +40,14 @@ class ExperimentDescriptionViewController: UIViewController {
         setupUI()
         setupLayout()
         
+    }
+}
+//MARK: -Button
+extension ExperimentDescriptionViewController {
+    
+    @objc func pressed(sender: UIBarButtonItem) {
+        let vc = AddExperimentDescription()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 // MARK: - Handlers
@@ -105,15 +115,21 @@ extension ExperimentDescriptionViewController {
         tableView.register(ExperimentDescriptionTableViewCell.self, forCellReuseIdentifier: "summaryCell")
         tableView.dataSource = self
         tableView.delegate = self
+        AddNewDescriptionButton.image = UIImage(systemName: "plus")
+        AddNewDescriptionButton.style = .plain
+        AddNewDescriptionButton.target = self
+        AddNewDescriptionButton.action = #selector(pressed(sender:))
 
     }
     
     func setupUI() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+       navigationItem.rightBarButtonItems = [AddNewDescriptionButton]
+        view.backgroundColor = .secondarySystemBackground
         view.backgroundColor = .secondarySystemBackground
         title = experimentDetails.experimentName
         view.addSubview(tableView)
         tableView.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = true
         tableBackgroundView.backgroundColor = .systemBackground
         
     }
