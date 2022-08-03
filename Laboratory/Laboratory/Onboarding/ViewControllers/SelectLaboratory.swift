@@ -1,5 +1,5 @@
 //
-//  AddNewExperimentViewController.swift
+//  SelectLaboratory.swift
 //  Laboratory
 //
 //  Created by mehrnoush abdinian on 21.07.22.
@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 
-class AddNewExperimentViewController: UIViewController {
+class SelectLaboratory: UIViewController {
 
 //  laborName
     private lazy var tableView = UITableView().autoLayoutView()
     private lazy var laborList = ["Labor1","Labor2","Labor3","Labor4"]
+    var laboratoryName : String = ""
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDefault()
@@ -25,7 +27,7 @@ class AddNewExperimentViewController: UIViewController {
 
 // MARK: - TableView Data source
 
-extension AddNewExperimentViewController: UITableViewDataSource {
+extension SelectLaboratory: UITableViewDataSource {
    
     
     
@@ -44,7 +46,7 @@ extension AddNewExperimentViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if  let cell = tableView.dequeueReusableCell(withIdentifier: "laborNameCell", for: indexPath) as? AddNewExperimentTableViewCell {
+        if  let cell = tableView.dequeueReusableCell(withIdentifier: "laborNameCell", for: indexPath) as? SelectLaboratoryTableViewCell {
             let text = laborList[indexPath.row]
             cell.setupCell(text: text)
             return cell
@@ -54,20 +56,19 @@ extension AddNewExperimentViewController: UITableViewDataSource {
     }
 }
 // MARK: - TableView Delegate
-extension AddNewExperimentViewController: UITableViewDelegate {
+extension SelectLaboratory: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let vc = SelectSlotCollectionView()
         self.navigationController?.pushViewController(vc, animated: true)
        
-
     }
 }
 // MARK: - Setup Default
 
-extension AddNewExperimentViewController {
+extension SelectLaboratory {
     func  setupDefault(){
-        tableView.register(AddNewExperimentTableViewCell.self, forCellReuseIdentifier: "laborNameCell")
+        tableView.register(SelectLaboratoryTableViewCell.self, forCellReuseIdentifier: "laborNameCell")
         tableView.dataSource = self
         tableView.delegate = self
        
@@ -76,7 +77,7 @@ extension AddNewExperimentViewController {
 }
 // MARK: - Setup UI
 
-extension AddNewExperimentViewController {
+extension SelectLaboratory {
     func setupUI() {
         view.backgroundColor = .secondarySystemBackground
         title = "Liste der Labors"

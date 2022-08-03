@@ -1,69 +1,133 @@
+
 //
-//  ExperimentDescriptionViewController.swift
+//  AddExperimentDescriptionViewController.swift
+//  The user can describe the experiment performed.
 //  Laboratory
 //
-//  Created by mehrnoush abdinian on 19.07.22.
+//  Created by mehrnoush abdinian on 12.06.22.
 //
 
 
 import Foundation
+import SwiftFoundation
 import UIKit
 
 class ExperimentDescriptionViewController: UIViewController {
+    private lazy var tableBackgroundView = TableBackgroundView()
+    private lazy var container = UIView().autoLayoutView()
+    private lazy var tableView = UITableView().autoLayoutView()
+    public var eventHandler: ((Event) -> Void)?
+    public enum Event{
+       case askAllDescriptionText(text: String)
+    }
+    private var experimentDetails: ExperimentDetails
     
-    private lazy var experimentDescriptionTextView = UITextView().autoLayoutView()
-    private var text : String
-
+    init(experimentDetails : ExperimentDetails) {
+        self.experimentDetails = experimentDetails
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventHandlers()
         setupDefault()
         setupUI()
         setupLayout()
         
     }
-  
-    
-     init(text: String) {
-         self.text = text
-            super.init(nibName: nil, bundle: nil)
-        }
-   
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-
-    }
 }
+// MARK: - Handlers
 
-// MARK: - SetupDefault
 extension ExperimentDescriptionViewController {
     
-    func setupDefault() {
+    private func eventHandlers() {
+        eventHandler = { [weak self] events in
+            switch events {
+            case .askAllDescriptionText(let text):
+                let vc = ViewFullDescriptionViewController(text : text)
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+     }
+}
+// MARK: - TableView Data source
+
+extension ExperimentDescriptionViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if experimentDetails.text.isEmpty {
+            tableView.backgroundView = tableBackgroundView
+            tableView.separatorStyle  = .none
+            return 0
+        }
+        else {
+            tableView.backgroundView  = .none
+            return experimentDetails.text.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if  let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell", for: indexPath) as? ExperimentDescriptionTableViewCell {
+            let text = experimentDetails.text[indexPath.row]
+            cell.setupCell(text: text)
+            cell.selectionStyle = .none
+            return cell
+        }
+        return UITableViewCell()
+    }
+}
+// MARK: - TableView Delegate
+extension ExperimentDescriptionViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let numberOfSelectedCell = indexPath.row
+        let text = experimentDetails.text[numberOfSelectedCell]
+        eventHandler?(.askAllDescriptionText(text: text))
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 // MARK: - Setup UI
 extension ExperimentDescriptionViewController {
+    
+    func setupDefault() {
+        tableView.register(ExperimentDescriptionTableViewCell.self, forCellReuseIdentifier: "summaryCell")
+        tableView.dataSource = self
+        tableView.delegate = self
+
+    }
+    
     func setupUI() {
-        
-        view.addSubviews(experimentDescriptionTextView)
         view.backgroundColor = .secondarySystemBackground
-        experimentDescriptionTextView.translatesAutoresizingMaskIntoConstraints = false
-        experimentDescriptionTextView.backgroundColor = .systemBackground
-        experimentDescriptionTextView.textColor = .label
-        experimentDescriptionTextView.font = UIFont(name:"HelveticaNeue", size: 14)
-        experimentDescriptionTextView.layer.cornerRadius = 10
-        experimentDescriptionTextView.text = text
-    }
-}
-
-// MARK: - Setup Layout
-
-extension ExperimentDescriptionViewController {
-    private func setupLayout() {
+        title = experimentDetails.experimentName
+        view.addSubview(tableView)
+        tableView.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = true
+        tableBackgroundView.backgroundColor = .systemBackground
         
-        experimentDescriptionTextView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
-        experimentDescriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
-        experimentDescriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        experimentDescriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+    }
+    
+    func setupLayout() {
+        tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
+        //tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        //tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
+        
+        
+        
     }
 }
+
 

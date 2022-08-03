@@ -1,7 +1,7 @@
 
 
 
-//  AddDetailTableViewCell.swift
+//  ExperimentDescriptionTableViewCell.swift
 //  Laboratory
 //
 //  Created by mehrnoush abdinian on 13.07.22.
@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 import SwiftUI
 
-class AddExperimentDescriptionTableViewCell : UITableViewCell {
+class ExperimentDescriptionTableViewCell : UITableViewCell {
     private lazy var container = UIView().autoLayoutView()
     private lazy var experimentSummaryText = UILabel().autoLayoutView()
     override init(style: ExperimentsListTableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -27,7 +27,7 @@ class AddExperimentDescriptionTableViewCell : UITableViewCell {
 }
 
 // MARK: - data setup cell
-extension AddExperimentDescriptionTableViewCell {
+extension ExperimentDescriptionTableViewCell {
     
     func setupCell (text: String) {
         experimentSummaryText.text = text
@@ -36,13 +36,13 @@ extension AddExperimentDescriptionTableViewCell {
 
 // MARK: - SetupDefault
 
-extension AddExperimentDescriptionTableViewCell {
+extension ExperimentDescriptionTableViewCell {
     func setupDefault() {
     }
 }
 
 // MARK: - SetupUI
-extension AddExperimentDescriptionTableViewCell {
+extension ExperimentDescriptionTableViewCell {
     func setupUI() {
         backgroundColor = UIColor.systemBackground
         contentView.addSubview(container)

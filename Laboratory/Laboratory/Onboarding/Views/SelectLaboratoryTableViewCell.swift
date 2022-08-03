@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 import SwiftUI
 
-class AddNewExperimentTableViewCell : UITableViewCell {
+class SelectLaboratoryTableViewCell : UITableViewCell {
     
     private lazy var container = UIView().autoLayoutView()
     private lazy var laborNameLabel = UILabel().autoLayoutView()
     
-    override init(style: AddNewExperimentTableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: SelectLaboratoryTableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
         setupLayout()
@@ -28,7 +28,7 @@ class AddNewExperimentTableViewCell : UITableViewCell {
 }
 
 // MARK: - data setup cell
-extension AddNewExperimentTableViewCell {
+extension SelectLaboratoryTableViewCell {
     
     func setupCell (text: String) {
         laborNameLabel.text = text
@@ -38,13 +38,13 @@ extension AddNewExperimentTableViewCell {
 
 // MARK: - SetupDefault
 
-extension AddNewExperimentTableViewCell {
+extension SelectLaboratoryTableViewCell {
     func setupDefault() {
     }
 }
 
 // MARK: - SetupUI
-extension AddNewExperimentTableViewCell {
+extension SelectLaboratoryTableViewCell {
     func setupUI() {
         backgroundColor = UIColor.systemBackground
         contentView.addSubview(container)

@@ -54,7 +54,7 @@ extension SelectSlotCollectionView: UICollectionViewDataSource {
 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath)as! LaboratorReservationcollectionViewCell
+            let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath)as! SelectSlotCollectionViewCell
         let time = timeList[indexPath.row]
        myCell.setupCell(data: time)
         
@@ -116,7 +116,7 @@ extension SelectSlotCollectionView: UICollectionViewDelegateFlowLayout {
 extension SelectSlotCollectionView {
     
     func setupDefaults() {
-        dateCollectionView.register(LaboratorReservationcollectionViewCell.self, forCellWithReuseIdentifier: "timeCell")
+        dateCollectionView.register(SelectSlotCollectionViewCell.self, forCellWithReuseIdentifier: "timeCell")
       dateCollectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
         
     }

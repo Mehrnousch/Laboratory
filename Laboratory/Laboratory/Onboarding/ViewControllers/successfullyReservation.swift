@@ -9,11 +9,9 @@ import Foundation
 import UIKit
 
 class successfullyReservation: UIViewController {
-    
    
     private lazy var label = UILabel().autoLayoutView()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDefaults()

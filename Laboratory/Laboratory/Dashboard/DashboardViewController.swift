@@ -34,7 +34,7 @@ extension DashboardViewController {
         experimentsListTableView.eventHandler = { [weak self] events in
             switch events {
             case .askExperimentDetail(let details):
-                let vc = AddExperimentDescriptionViewController(experimentDetails: details)
+                let vc = ExperimentDescriptionViewController(experimentDetails: details)
                 self?.navigationController?.pushViewController(vc, animated: true)
             
             }
@@ -45,7 +45,7 @@ extension DashboardViewController {
 extension DashboardViewController {
     
     @objc func pressed(sender: UIBarButtonItem) {
-        let vc = AddNewExperimentViewController()
+        let vc = SelectLaboratory()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

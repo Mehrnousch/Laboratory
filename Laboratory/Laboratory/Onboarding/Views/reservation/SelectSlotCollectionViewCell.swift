@@ -1,5 +1,5 @@
 //
-//  LaboratorzReservationcollectionViewCell.swift
+//  SelectSlotCollectionViewCell.swift
 //  Laboratory
 //
 //  Created by mehrnoush abdinian on 25.07.22.
@@ -10,7 +10,7 @@
 import Foundation
 import UIKit
 
-class LaboratorReservationcollectionViewCell: UICollectionViewListCell {
+class SelectSlotCollectionViewCell: UICollectionViewListCell {
     private lazy var container = UIView().autoLayoutView()
     private lazy var label = UILabel().autoLayoutView()
     override init(frame: CGRect) {
@@ -27,7 +27,7 @@ class LaboratorReservationcollectionViewCell: UICollectionViewListCell {
 }
 
 // MARK: - data setup cell
-extension LaboratorReservationcollectionViewCell {
+extension SelectSlotCollectionViewCell {
     
     func setupCell(data: String){
         label.text = data
@@ -38,7 +38,7 @@ extension LaboratorReservationcollectionViewCell {
 
 // MARK: - SetupDefault
 
-extension LaboratorReservationcollectionViewCell {
+extension SelectSlotCollectionViewCell {
     
     private func setupDefault(){
     }
@@ -49,7 +49,7 @@ extension LaboratorReservationcollectionViewCell {
 
 // MARK: - SetupUI
 
-extension LaboratorReservationcollectionViewCell {
+extension SelectSlotCollectionViewCell {
     
    private func setupUI(){
        //backgroundColor = UIColor.red
