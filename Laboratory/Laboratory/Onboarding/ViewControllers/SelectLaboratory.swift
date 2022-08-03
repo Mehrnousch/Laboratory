@@ -10,12 +10,13 @@ import UIKit
 
 class SelectLaboratory: UIViewController {
 
-//  laborName
+//  laboratoryName
     private lazy var tableView = UITableView().autoLayoutView()
     private lazy var laborList = ["Labor1","Labor2","Labor3","Labor4"]
-    var laboratoryName : String = ""
-    
-
+    public var eventHandler: ((Event) -> Void)?
+    public enum Event{
+       case askLaborName(laboratoryName: String)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDefault()
@@ -58,12 +59,16 @@ extension SelectLaboratory: UITableViewDataSource {
 // MARK: - TableView Delegate
 extension SelectLaboratory: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let numberOfSelectedLabor = indexPath.row
+        let laboratoryName = laborList[numberOfSelectedLabor]
+        eventHandler?(.askLaborName(laboratoryName : laboratoryName))
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = SelectSlotCollectionView()
+        let vc = SelectSlotCollectionView(laboratoryName : laboratoryName)
         self.navigationController?.pushViewController(vc, animated: true)
        
     }
 }
+                      
 // MARK: - Setup Default
 
 extension SelectLaboratory {

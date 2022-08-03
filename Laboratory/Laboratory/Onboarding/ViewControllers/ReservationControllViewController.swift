@@ -27,7 +27,11 @@ class ReservationControllViewController: UIViewController {
     private lazy var userAgreementLabel = UILabel().autoLayoutView()
     private lazy var checkboxUserAgreement = UIButton.init(type: .custom)
     private lazy var submitButton = UIButton().autoLayoutView()
-
+    public var eventHandler: ((Event) -> Void)?
+    public enum Event{
+       case askLaborName(laboratoryName: String)
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +40,25 @@ class ReservationControllViewController: UIViewController {
         setupLayout()
         
     }
+    
+    private var laboratoryName : String
+   
+    init(laboratoryName: String) {
+        self.laboratoryName = laboratoryName
+           super.init(nibName: nil, bundle: nil)
+       }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+
+    }
 }
 //MARK: -Button
 extension ReservationControllViewController {
     
     @objc func pressed(sender: UIBarButtonItem) {
-        let vc = successfullyReservation()
+        let laboratoryName = laboratoryName
+        eventHandler?(.askLaborName(laboratoryName : laboratoryName))
+        let vc = successfullyReservation(laboratoryName: laboratoryName)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -85,7 +102,7 @@ extension ReservationControllViewController {
     
     func setupUI() {
         view.backgroundColor = .secondarySystemBackground
-        title = " Laboratory information"
+        title = laboratoryName
         view.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         navigationController?.navigationBar.prefersLargeTitles = true

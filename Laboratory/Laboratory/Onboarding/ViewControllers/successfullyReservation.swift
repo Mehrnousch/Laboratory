@@ -18,6 +18,16 @@ class successfullyReservation: UIViewController {
         setupUI()
         setupLayout()
     }
+    private var laboratoryName : String
+   
+    init(laboratoryName: String) {
+        self.laboratoryName = laboratoryName
+           super.init(nibName: nil, bundle: nil)
+       }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+
+    }
     
 }
 
@@ -37,10 +47,10 @@ extension successfullyReservation {
     private func setupUI() {
         
         view.backgroundColor = .secondarySystemBackground
-        title = "erfolgreich Reservieren "
+        title =  laboratoryName
         view.addSubview(label)
         label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
-        label.text = "Sie haben das Labor Nummer eins am 12. August 2022 um 13:00 Uhr erfolgreich reserviert."
+        label.text = "Sie haben das \(laboratoryName)  am 12. August 2022 um 13:00 Uhr erfolgreich reserviert."
         label.numberOfLines = 0
 
 

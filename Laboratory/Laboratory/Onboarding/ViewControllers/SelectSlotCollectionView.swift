@@ -14,13 +14,26 @@ class SelectSlotCollectionView: UIViewController {
     let dateCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     let dateList = ["01.02.2022","02.02.2022","03.02.2022","04.02.2022","05.02.2022","06.02.2022","07.02.2022","08.02.2022","09.02.2022", "10.02.2022", "11.02.2022"]
     let timeList = ["08:00","09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00"]
-   
+    public var eventHandler: ((Event) -> Void)?
+    public enum Event{
+       case askLaborName(laboratoryName: String)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDefaults()
         setupUI()
         setupLayout()
+    }
+    private var laboratoryName : String
+   
+    init(laboratoryName: String) {
+        self.laboratoryName = laboratoryName
+           super.init(nibName: nil, bundle: nil)
+       }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+
     }
 }
 
@@ -56,8 +69,7 @@ extension SelectSlotCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath)as! SelectSlotCollectionViewCell
         let time = timeList[indexPath.row]
-       myCell.setupCell(data: time)
-        
+        myCell.setupCell(data: time)
         myCell.isSelected = false
         myCell.layer.borderColor = .init(red: 0.1, green: 0.3, blue: 0.9, alpha: 0.1)
         myCell.layer.borderWidth = 2
@@ -93,10 +105,12 @@ extension SelectSlotCollectionView: UICollectionViewDataSource {
 extension SelectSlotCollectionView: UICollectionViewDelegate {
         
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let laboratoryName = laboratoryName
+            eventHandler?(.askLaborName(laboratoryName : laboratoryName))
                 print("User tapped on item in cell \(indexPath)")
-            let vc = ReservationControllViewController()
+            let vc = ReservationControllViewController(laboratoryName : laboratoryName)
             self.navigationController?.pushViewController(vc, animated: true)
-                
+             
             }
     }
 
@@ -130,7 +144,7 @@ extension SelectSlotCollectionView {
         view.addSubviews(dateCollectionView)
         dateCollectionView.dataSource = self
         dateCollectionView.delegate = self
-        title = "Choose an appointment"
+        title = laboratoryName
         view.backgroundColor = .systemBackground
         dateCollectionView.backgroundColor = .systemBackground
         dateCollectionView.translatesAutoresizingMaskIntoConstraints = false
