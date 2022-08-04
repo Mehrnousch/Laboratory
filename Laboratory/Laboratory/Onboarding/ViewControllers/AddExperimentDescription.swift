@@ -14,7 +14,7 @@ import SwiftUI
 
 class AddExperimentDescription: UIViewController {
     private lazy var descriptionView = UIView().autoLayoutView()
-    private lazy var descriptionTextField = UITextView().autoLayoutView()
+    private lazy var textView = UITextView().autoLayoutView()
     private lazy var addImageButton1 = UIButton().autoLayoutView()
     private lazy var addImageButton2 = UIButton().autoLayoutView()
     private lazy var submitButton = UIButton().autoLayoutView()
@@ -44,7 +44,27 @@ class AddExperimentDescription: UIViewController {
 //
 //    }
 }
+// MARK: - TextView
 
+extension AddExperimentDescription {
+
+    private func textLimit(existingText: String?,
+                           newText: String,
+                           limit: Int) -> Bool {
+        let text = existingText ?? ""
+        let isAtLimit = text.count + newText.count <= limit
+        return isAtLimit
+    }
+    
+}
+// MARK: - UICollectionViewDelegate
+extension AddExperimentDescription: UITextViewDelegate {
+   func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String
+    ) -> Bool {
+        return self.textLimit(existingText: textView.text, newText: text,limit: 200)
+    }
+  
+}
 // MARK: - Keyboard methods
 
 extension AddExperimentDescription {
@@ -68,6 +88,8 @@ extension AddExperimentDescription {
 extension AddExperimentDescription {
     
     func setupDefault() {
+        textView.delegate = self
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -118,15 +140,15 @@ extension AddExperimentDescription {
         addImage2Label.text = "Füge ein Foto hinzu"
 
 //      descriptionTextField
-        descriptionView.addSubview(descriptionTextField)
-        descriptionTextField.translatesAutoresizingMaskIntoConstraints = false
-        descriptionTextField.setBorder(width: 0.5, color: .systemGray2)
-        descriptionTextField.backgroundColor = .systemBackground
-        descriptionTextField.setCornerRadius(12)
-        descriptionTextField.textAlignment = .center
-        descriptionTextField.textColor = .label
-        descriptionTextField.autocapitalizationType = .none
-        descriptionTextField.font = UIFont(name:"HelveticaNeue", size: 16)
+        descriptionView.addSubview(textView)
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.setBorder(width: 0.5, color: .systemGray2)
+        textView.backgroundColor = .systemBackground
+        textView.setCornerRadius(12)
+        textView.textAlignment = .center
+        textView.textColor = .label
+        textView.autocapitalizationType = .none
+        textView.font = UIFont(name:"HelveticaNeue", size: 16)
 
         
 //      submitButton
@@ -176,13 +198,13 @@ extension AddExperimentDescription {
                 addImage2Label.heightAnchor.constraint(equalToConstant: 44).isActive = true
         
 //        descriptionTextField
-                descriptionTextField.topAnchor.constraint(equalTo: addImage1Label.bottomAnchor, constant: 50).isActive = true
-                descriptionTextField.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 20).isActive = true
-                descriptionTextField.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -20).isActive = true
-                descriptionTextField.heightAnchor.constraint(equalToConstant: 170).isActive = true
+        textView.topAnchor.constraint(equalTo: addImage1Label.bottomAnchor, constant: 50).isActive = true
+        textView.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 20).isActive = true
+        textView.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -20).isActive = true
+        textView.heightAnchor.constraint(equalToConstant: 170).isActive = true
         
 //        submitButton
-        submitButton.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: 40).isActive = true
+        submitButton.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 40).isActive = true
         submitButton.centerXAnchor.constraint(equalTo: descriptionView.centerXAnchor).isActive = true
         submitButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         submitButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
