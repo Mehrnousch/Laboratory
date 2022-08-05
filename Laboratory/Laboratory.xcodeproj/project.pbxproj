@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5662F350289DB6DD00700CA3 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662F34F289DB6DD00700CA3 /* Register.swift */; };
 		567F3CB52896ED3A002B5AA4 /* ReservationControllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F3CB42896ED3A002B5AA4 /* ReservationControllViewController.swift */; };
 		567F3CB72896F740002B5AA4 /* Protokol.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 567F3CB62896F740002B5AA4 /* Protokol.pdf */; };
 		567F3CB92896F791002B5AA4 /* Sicherheit.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 567F3CB82896F791002B5AA4 /* Sicherheit.pdf */; };
@@ -14,7 +15,6 @@
 		567F3CBD28983209002B5AA4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F3CBC28983209002B5AA4 /* RegisterViewController.swift */; };
 		567F3CBF28988DB0002B5AA4 /* successfullyReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F3CBE28988DB0002B5AA4 /* successfullyReservation.swift */; };
 		567F3CC1289ACF9F002B5AA4 /* AddExperimentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F3CC0289ACF9F002B5AA4 /* AddExperimentDescription.swift */; };
-		568E1FB628806E9C00EBF3C5 /* ExperimentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */; };
 		568E1FBC288332EE00EBF3C5 /* Tempfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FBB288332EE00EBF3C5 /* Tempfile.swift */; };
 		568E1FC128872B7A00EBF3C5 /* ViewFullDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E1FC028872B7A00EBF3C5 /* ViewFullDescriptionViewController.swift */; };
 		56E2FC68287EAD300077F0A2 /* ExperimentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E2FC67287EAD300077F0A2 /* ExperimentDetails.swift */; };
@@ -43,7 +43,7 @@
 		56FB4168287C875C00FE6E6B /* ExperimentsListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4167287C875C00FE6E6B /* ExperimentsListTableView.swift */; };
 		56FB416B287C87EE00FE6E6B /* TableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB416A287C87EE00FE6E6B /* TableBackgroundView.swift */; };
 		56FB416D287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB416C287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift */; };
-		56FB4171287C9CBF00FE6E6B /* ExpeimentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4170287C9CBF00FE6E6B /* ExpeimentResponse.swift */; };
+		56FB4171287C9CBF00FE6E6B /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4170287C9CBF00FE6E6B /* RegisterResponse.swift */; };
 		56FB4176287CCCB100FE6E6B /* NetworkingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4175287CCCB100FE6E6B /* NetworkingModel.swift */; };
 		56FB4179287CCDB300FE6E6B /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4178287CCDB300FE6E6B /* Dictionary.swift */; };
 		56FB417B287CCDF500FE6E6B /* CharacterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB417A287CCDF500FE6E6B /* CharacterSet.swift */; };
@@ -73,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5662F34F289DB6DD00700CA3 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		567F3CB42896ED3A002B5AA4 /* ReservationControllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationControllViewController.swift; sourceTree = "<group>"; };
 		567F3CB62896F740002B5AA4 /* Protokol.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Protokol.pdf; sourceTree = "<group>"; };
 		567F3CB82896F791002B5AA4 /* Sicherheit.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Sicherheit.pdf; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		567F3CBC28983209002B5AA4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		567F3CBE28988DB0002B5AA4 /* successfullyReservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = successfullyReservation.swift; sourceTree = "<group>"; };
 		567F3CC0289ACF9F002B5AA4 /* AddExperimentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExperimentDescription.swift; sourceTree = "<group>"; };
-		568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentData.swift; sourceTree = "<group>"; };
 		568E1FBB288332EE00EBF3C5 /* Tempfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tempfile.swift; sourceTree = "<group>"; };
 		568E1FC028872B7A00EBF3C5 /* ViewFullDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFullDescriptionViewController.swift; sourceTree = "<group>"; };
 		56E2FC67287EAD300077F0A2 /* ExperimentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDetails.swift; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		56FB4167287C875C00FE6E6B /* ExperimentsListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsListTableView.swift; sourceTree = "<group>"; };
 		56FB416A287C87EE00FE6E6B /* TableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBackgroundView.swift; sourceTree = "<group>"; };
 		56FB416C287C88FE00FE6E6B /* ExperimentsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsListTableViewCell.swift; sourceTree = "<group>"; };
-		56FB4170287C9CBF00FE6E6B /* ExpeimentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeimentResponse.swift; sourceTree = "<group>"; };
+		56FB4170287C9CBF00FE6E6B /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		56FB4175287CCCB100FE6E6B /* NetworkingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingModel.swift; sourceTree = "<group>"; };
 		56FB4178287CCDB300FE6E6B /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		56FB417A287CCDF500FE6E6B /* CharacterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSet.swift; sourceTree = "<group>"; };
@@ -372,10 +372,10 @@
 		56FB4177287CCCD000FE6E6B /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				56FB4170287C9CBF00FE6E6B /* ExpeimentResponse.swift */,
+				56FB4170287C9CBF00FE6E6B /* RegisterResponse.swift */,
 				56E2FC67287EAD300077F0A2 /* ExperimentDetails.swift */,
-				568E1FB528806E9C00EBF3C5 /* ExperimentData.swift */,
 				56FDA61A2891A5180068BB7B /* Reservation.swift */,
+				5662F34F289DB6DD00700CA3 /* Register.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -530,7 +530,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56FB4171287C9CBF00FE6E6B /* ExpeimentResponse.swift in Sources */,
+				56FB4171287C9CBF00FE6E6B /* RegisterResponse.swift in Sources */,
 				56FDA5FC28899D5C0068BB7B /* SelectLaboratoryTableViewCell.swift in Sources */,
 				56E2FC6A287F22760077F0A2 /* UIColor.swift in Sources */,
 				56E2FC7B287FFFCF0077F0A2 /* ExperimentDescriptionViewController.swift in Sources */,
@@ -543,7 +543,6 @@
 				56FB3FF52856346400FE6E6B /* AppDelegate.swift in Sources */,
 				56FB403F28563E2F00FE6E6B /* GlobalFunctions.swift in Sources */,
 				567F3CBD28983209002B5AA4 /* RegisterViewController.swift in Sources */,
-				568E1FB628806E9C00EBF3C5 /* ExperimentData.swift in Sources */,
 				56FDA5FE2889CD9D0068BB7B /* SelectSlotCollectionView.swift in Sources */,
 				56FDA61B2891A5180068BB7B /* Reservation.swift in Sources */,
 				56FB4168287C875C00FE6E6B /* ExperimentsListTableView.swift in Sources */,
@@ -560,6 +559,7 @@
 				568E1FBC288332EE00EBF3C5 /* Tempfile.swift in Sources */,
 				56E2FC68287EAD300077F0A2 /* ExperimentDetails.swift in Sources */,
 				56FB402E2856399D00FE6E6B /* InputViewController.swift in Sources */,
+				5662F350289DB6DD00700CA3 /* Register.swift in Sources */,
 				56FB403D28563CDE00FE6E6B /* Authentication.swift in Sources */,
 				56FB416B287C87EE00FE6E6B /* TableBackgroundView.swift in Sources */,
 				56FB417B287CCDF500FE6E6B /* CharacterSet.swift in Sources */,
