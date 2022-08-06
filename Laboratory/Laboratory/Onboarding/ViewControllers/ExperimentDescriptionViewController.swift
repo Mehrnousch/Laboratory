@@ -9,7 +9,6 @@
 
 
 import Foundation
-import SwiftFoundation
 import UIKit
 
 class ExperimentDescriptionViewController: UIViewController {

@@ -8,7 +8,6 @@
 
 
 import Foundation
-import SwiftFoundation
 import UIKit
 
 class RegisterViewController: UIViewController {
