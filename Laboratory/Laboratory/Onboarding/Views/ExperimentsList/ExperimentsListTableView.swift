@@ -64,7 +64,7 @@ extension ExperimentsListTableView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "linkCell", for: indexPath) as? ExperimentsListTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ExperimentsListTableViewCell {
             let experimentData = experimentsList[indexPath.row]
             cell.setupCell(data: experimentData)
             cell.selectionStyle = .none
@@ -88,7 +88,7 @@ extension ExperimentsListTableView: UITableViewDelegate {
 extension ExperimentsListTableView {
     
     func setupDefault() {
-        tableView.register(ExperimentsListTableViewCell.self, forCellReuseIdentifier: "linkCell")
+        tableView.register(ExperimentsListTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         tableView.delegate = self
     }

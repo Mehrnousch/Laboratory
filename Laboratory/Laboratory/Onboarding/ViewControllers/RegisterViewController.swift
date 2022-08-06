@@ -14,7 +14,7 @@ import UIKit
 class RegisterViewController: UIViewController {
     
     enum Event {
-        case dissmissed 
+        case dissmissed
     }
     
     var eventHandler: ((Event) -> Void)?
@@ -36,7 +36,24 @@ class RegisterViewController: UIViewController {
         setupLayout()
     }
 }
+// MARK: - Keyboard methods
 
+extension RegisterViewController {
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+   @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+}
 //MARK: - Life cycle
 extension RegisterViewController {
     
@@ -51,9 +68,21 @@ extension RegisterViewController {
 extension RegisterViewController {
     
     func setupDefaults() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
+      NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        // dismissKeyboard
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+            tap.cancelsTouchesInView = false
+            view.addGestureRecognizer(tap)
     }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+        
+   
 
 
     
@@ -80,7 +109,8 @@ extension RegisterViewController {
         usernameTextField.borderStyle = .none
         usernameTextField.setBorder(width: 0.5, color: .systemGray)
         usernameTextField.setCornerRadius(10)
-       // usernameTextField.placeholderText = "Benutzername"
+        usernameTextField.placeholder = "Benutzername"
+        usernameTextField.setLeftPaddingPoints(10)
 
         //E-mailAddressLabel
         container.addSubview(emailAddressLabel)
@@ -94,7 +124,10 @@ extension RegisterViewController {
         emailAddressTextField.borderStyle = .none
         emailAddressTextField.setBorder(width: 0.5, color: .systemGray)
         emailAddressTextField.setCornerRadius(10)
-        
+        emailAddressTextField.placeholder = "E-Mail-Adresse"
+        emailAddressTextField.setLeftPaddingPoints(10)
+
+
         //passwordLabel
         container.addSubview(passwordLabel)
         passwordLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -108,7 +141,10 @@ extension RegisterViewController {
         passwordTextField.borderStyle = .none
         passwordTextField.setBorder(width: 0.5, color: .systemGray)
         passwordTextField.setCornerRadius(10)
-        
+        passwordTextField.placeholder = "Password"
+        passwordTextField.setLeftPaddingPoints(10)
+
+
         //registerButton
         container.addSubview(registerButton)
         registerButton.translatesAutoresizingMaskIntoConstraints = false
@@ -121,46 +157,45 @@ extension RegisterViewController {
     }
     
     private func setupLayout() {
-        
         //container
-        container.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 40).isActive = true
-        container.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        container.heightAnchor.constraint(equalToConstant: 350).isActive = true
+       container.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
         container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         container.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
         //label
         //usernameLabel
-        usernameLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 10).isActive = true
+        usernameLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 0).isActive = true
         usernameLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
        
         //UsernameTextfield
-        usernameTextField.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 10).isActive = true
+        usernameTextField.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 5).isActive = true
         usernameTextField.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
         usernameTextField.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
         usernameTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
 
         //emailLabel
-        emailAddressLabel.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 20).isActive = true
+        emailAddressLabel.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 15).isActive = true
         emailAddressLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
         
         //emailTextFied
-        emailAddressTextField.topAnchor.constraint(equalTo: emailAddressLabel.bottomAnchor, constant: 10).isActive = true
+        emailAddressTextField.topAnchor.constraint(equalTo: emailAddressLabel.bottomAnchor, constant: 5).isActive = true
         emailAddressTextField.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
         emailAddressTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
         emailAddressTextField.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
 
         //passwordLabel
-        passwordLabel.topAnchor.constraint(equalTo: emailAddressTextField.bottomAnchor, constant: 20).isActive = true
+        passwordLabel.topAnchor.constraint(equalTo: emailAddressTextField.bottomAnchor, constant: 15).isActive = true
         passwordLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
         
         //passwordTextField
-        passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 10).isActive = true
+        passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 5).isActive = true
         passwordTextField.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
         passwordTextField.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
         passwordTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
 
         //registerButton
-        registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 50).isActive = true
+        registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 35).isActive = true
         registerButton.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
         registerButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
         registerButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
