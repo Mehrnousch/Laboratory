@@ -88,8 +88,8 @@ extension SelectLaboratory {
         title = "Liste der Labors"
         view.addSubview(tableView)
         tableView.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
+        navigationController?.navigationBar.prefersLargeTitles = false
+
     }
     
     func setupLayout() {

@@ -102,16 +102,16 @@ extension ReservationControllViewController {
     }
     
     func setupUI() {
-        view.backgroundColor = .secondarySystemBackground
+        view.backgroundColor = .systemBackground
         title = "\(laboratoryName) am \(selectedDate) um \(selectedTime)"
         view.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         label.textColor = .label
         label.font = UIFont(name:"HelveticaNeue", size: 16)
         label.textAlignment = .left
         label.text = "Please download and read the security information and laboratory protocols."
-        label.backgroundColor = .secondarySystemBackground
+        label.backgroundColor = .systemBackground
         label.layer.cornerRadius = 5
         label.numberOfLines = 0
        
@@ -178,7 +178,7 @@ extension ReservationControllViewController {
         submitButton.translatesAutoresizingMaskIntoConstraints = false
         submitButton.title = "einreichen"
         submitButton.setCornerRadius(10)
-        submitButton.backgroundColor = .systemGray2
+        submitButton.backgroundColor = .purple
         submitButton.tintColor = .white
         submitButton.addTarget(self, action: #selector(pressed), for: .touchUpInside)
         

@@ -122,14 +122,12 @@ extension ExperimentDescriptionViewController {
     }
     
     func setupUI() {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
        navigationItem.rightBarButtonItems = [AddNewDescriptionButton]
-        view.backgroundColor = .secondarySystemBackground
         view.backgroundColor = .secondarySystemBackground
         title = experimentDetails.experimentName
         view.addSubview(tableView)
         tableView.backgroundColor = .systemBackground
-        tableBackgroundView.backgroundColor = .systemBackground
         
     }
     

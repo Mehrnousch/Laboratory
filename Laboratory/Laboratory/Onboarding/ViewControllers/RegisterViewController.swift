@@ -92,15 +92,15 @@ extension RegisterViewController {
         title = " Konto erstellen"
         view.addSubview(container)
         container.translatesAutoresizingMaskIntoConstraints = false
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
 
 
        
-        //usernameLabel
-        container.addSubview(usernameLabel)
-        usernameLabel.translatesAutoresizingMaskIntoConstraints = false
-        usernameLabel.text = "Benutzername"
-        usernameLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
+//        //usernameLabel
+//        container.addSubview(usernameLabel)
+//        usernameLabel.translatesAutoresizingMaskIntoConstraints = false
+//        usernameLabel.text = "Benutzername"
+//        usernameLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
 
         //usernameTextField
         container.addSubview(usernameTextField)
@@ -111,11 +111,11 @@ extension RegisterViewController {
         usernameTextField.placeholder = "Benutzername"
         usernameTextField.setLeftPaddingPoints(10)
 
-        //E-mailAddressLabel
-        container.addSubview(emailAddressLabel)
-        emailAddressLabel.translatesAutoresizingMaskIntoConstraints = false
-        emailAddressLabel.text = "E-Mail-Adresse"
-        emailAddressLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
+//        //E-mailAddressLabel
+//        container.addSubview(emailAddressLabel)
+//        emailAddressLabel.translatesAutoresizingMaskIntoConstraints = false
+//        emailAddressLabel.text = "E-Mail-Adresse"
+//        emailAddressLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
 
         //E-mailAddressTextField
         container.addSubview(emailAddressTextField)
@@ -127,11 +127,11 @@ extension RegisterViewController {
         emailAddressTextField.setLeftPaddingPoints(10)
 
 
-        //passwordLabel
-        container.addSubview(passwordLabel)
-        passwordLabel.translatesAutoresizingMaskIntoConstraints = false
-        passwordLabel.text = "Passwort"
-        passwordLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
+//        //passwordLabel
+//        container.addSubview(passwordLabel)
+//        passwordLabel.translatesAutoresizingMaskIntoConstraints = false
+//        passwordLabel.text = "Passwort"
+//        passwordLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
 
         //passwordTextField
         container.addSubview(passwordTextField)
@@ -164,31 +164,31 @@ extension RegisterViewController {
         
         //label
         //usernameLabel
-        usernameLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 0).isActive = true
-        usernameLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
+//        usernameLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 0).isActive = true
+//        usernameLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
        
         //UsernameTextfield
-        usernameTextField.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 5).isActive = true
+        usernameTextField.topAnchor.constraint(equalTo: container.topAnchor, constant: 0).isActive = true
         usernameTextField.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
         usernameTextField.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
         usernameTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
 
         //emailLabel
-        emailAddressLabel.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 15).isActive = true
-        emailAddressLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
+//        emailAddressLabel.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 15).isActive = true
+//        emailAddressLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
         
         //emailTextFied
-        emailAddressTextField.topAnchor.constraint(equalTo: emailAddressLabel.bottomAnchor, constant: 5).isActive = true
+        emailAddressTextField.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 10).isActive = true
         emailAddressTextField.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
         emailAddressTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
         emailAddressTextField.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
 
         //passwordLabel
-        passwordLabel.topAnchor.constraint(equalTo: emailAddressTextField.bottomAnchor, constant: 15).isActive = true
-        passwordLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
+//        passwordLabel.topAnchor.constraint(equalTo: emailAddressTextField.bottomAnchor, constant: 15).isActive = true
+//        passwordLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
         
         //passwordTextField
-        passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 5).isActive = true
+        passwordTextField.topAnchor.constraint(equalTo: emailAddressTextField.bottomAnchor, constant: 10).isActive = true
         passwordTextField.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
         passwordTextField.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
         passwordTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true

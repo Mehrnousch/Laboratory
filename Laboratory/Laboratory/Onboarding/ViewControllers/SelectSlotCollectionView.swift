@@ -138,7 +138,7 @@ extension SelectSlotCollectionView {
     }
  
     private func setupUI() {
-        
+        navigationController?.navigationBar.prefersLargeTitles = false
         if let flowLayout = dateCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .vertical
         }

@@ -101,41 +101,46 @@ extension AddExperimentDescription {
     }
     
     func setupUI() {
-
-        title = "Experiment Description"
+        
+        navigationController?.navigationBar.prefersLargeTitles = false
+        title = "Experimentbeschreibung"
         view.addSubview(descriptionView)
         descriptionView.translatesAutoresizingMaskIntoConstraints = false
         descriptionView.setCornerRadius(12)
-
-
+        view.backgroundColor = .systemBackground
+        descriptionView.backgroundColor = .secondarySystemBackground
 
 //      addImageButton1
         descriptionView.addSubview(addImageButton1)
         addImageButton1.translatesAutoresizingMaskIntoConstraints = false
         addImageButton1.setCornerRadius(12)
         addImageButton1.tintColor = .white
-        addImageButton1.backgroundColor = .purple
-        addImageButton1.image = UIImage(systemName: "photo")
-        addImageButton1.imageView?.layer.transform = CATransform3DMakeScale(3, 3, 3)
+//        addImageButton1.backgroundColor = .purple
+//        addImageButton1.image = UIImage(systemName: "paperclip")
+        addImageButton1.image = UIImage(systemName: "paperclip")!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        addImageButton1.tintColor = .gray
+        addImageButton1.image?.withTintColor(.gray)
+        addImageButton1.imageView?.layer.transform = CATransform3DMakeScale(2, 2, 2)
 
 //      addImage1Label
         descriptionView.addSubview(addImage1Label)
         addImage1Label.translatesAutoresizingMaskIntoConstraints = false
         addImage1Label.text = "Füge ein Foto hinzu"
+        addImage1Label.textColor = .gray
         
-//      addImageButton2
-        descriptionView.addSubview(addImageButton2)
-        addImageButton2.translatesAutoresizingMaskIntoConstraints = false
-        addImageButton2.setCornerRadius(12)
-        addImageButton2.tintColor = .white
-        addImageButton2.backgroundColor = .purple
-        addImageButton2.image = UIImage(systemName: "photo")
-        addImageButton2.imageView?.layer.transform = CATransform3DMakeScale(3, 3, 3)
+////      addImageButton2
+//        descriptionView.addSubview(addImageButton2)
+//        addImageButton2.translatesAutoresizingMaskIntoConstraints = false
+//        addImageButton2.setCornerRadius(12)
+//        addImageButton2.tintColor = .white
+//        addImageButton2.backgroundColor = .purple
+//        addImageButton2.image = UIImage(systemName: "photo")
+//        addImageButton2.imageView?.layer.transform = CATransform3DMakeScale(3, 3, 3)
         
-//      addImage2Label
-        descriptionView.addSubview(addImage2Label)
-        addImage2Label.translatesAutoresizingMaskIntoConstraints = false
-        addImage2Label.text = "Füge ein Foto hinzu"
+////      addImage2Label
+//        descriptionView.addSubview(addImage2Label)
+//        addImage2Label.translatesAutoresizingMaskIntoConstraints = false
+//        addImage2Label.text = "Füge ein Foto hinzu"
 
 //      descriptionTextField
         descriptionView.addSubview(textView)
@@ -158,51 +163,49 @@ extension AddExperimentDescription {
         submitButton.backgroundColor = .blueGreen
         
         
-        view.backgroundColor = .systemBackground
-        descriptionView.backgroundColor = .secondarySystemBackground
         
     }
     
     func setupLayout() {
 //      descriptionView
-        descriptionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 200).isActive = true
+        descriptionView.heightAnchor.constraint(equalToConstant: 300).isActive = true
         descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        descriptionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
+        descriptionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
         
 
         
-//        addImageButton1
+//      addImageButton1
         addImageButton1.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 20).isActive = true
-        addImageButton1.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 50).isActive = true
-        addImageButton1.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        addImageButton1.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        addImageButton1.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 20).isActive = true
+        addImageButton1.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        addImageButton1.widthAnchor.constraint(equalToConstant: 44).isActive = true
         
-//addImage1LAbel
-        addImage1Label.topAnchor.constraint(equalTo: addImageButton1.bottomAnchor, constant: 10).isActive = true
-        addImage1Label.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 20).isActive = true
+//      addImage1LAbel
+        addImage1Label.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 20).isActive = true
+        addImage1Label.leadingAnchor.constraint(equalTo: addImageButton1.trailingAnchor, constant: 5).isActive = true
         addImage1Label.heightAnchor.constraint(equalToConstant: 44).isActive = true
 
         
-//        addImageButton2
-        addImageButton2.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 20).isActive = true
-        addImageButton2.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -50).isActive = true
-        addImageButton2.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        addImageButton2.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        
-        //addImage2LAbel
-                addImage2Label.topAnchor.constraint(equalTo: addImageButton2.bottomAnchor, constant: 10).isActive = true
-                addImage2Label.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -20).isActive = true
-                addImage2Label.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        
+////        addImageButton2
+//        addImageButton2.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 20).isActive = true
+//        addImageButton2.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -50).isActive = true
+//        addImageButton2.heightAnchor.constraint(equalToConstant: 70).isActive = true
+//        addImageButton2.widthAnchor.constraint(equalToConstant: 80).isActive = true
+//
+//        //addImage2LAbel
+//                addImage2Label.topAnchor.constraint(equalTo: addImageButton1.bottomAnchor, constant: 10).isActive = true
+//                addImage2Label.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -20).isActive = true
+//                addImage2Label.heightAnchor.constraint(equalToConstant: 44).isActive = true
+//
 //        descriptionTextField
-        textView.topAnchor.constraint(equalTo: addImage1Label.bottomAnchor, constant: 50).isActive = true
+        textView.topAnchor.constraint(equalTo: addImage1Label.bottomAnchor, constant: 20).isActive = true
         textView.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 20).isActive = true
         textView.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -20).isActive = true
-        textView.heightAnchor.constraint(equalToConstant: 170).isActive = true
+        textView.heightAnchor.constraint(equalToConstant: 140).isActive = true
         
 //        submitButton
-        submitButton.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 40).isActive = true
+        submitButton.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 20).isActive = true
         submitButton.centerXAnchor.constraint(equalTo: descriptionView.centerXAnchor).isActive = true
         submitButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         submitButton.widthAnchor.constraint(equalToConstant: 120).isActive = true

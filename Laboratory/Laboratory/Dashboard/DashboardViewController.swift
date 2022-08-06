@@ -24,6 +24,7 @@ class DashboardViewController: UIViewController {
     }
 }
 
+
 // MARK: - Handlers
 
 extension DashboardViewController {
@@ -56,8 +57,10 @@ extension DashboardViewController {
     }
      
     private func setupUI() {
-        title = "Experiments"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        
+
+        title = "Experimente"
+        navigationController?.navigationBar.prefersLargeTitles = false
        navigationItem.rightBarButtonItems = [newExperimentButton]
         newExperimentButton.image = UIImage(systemName: "plus")
         newExperimentButton.style = .plain

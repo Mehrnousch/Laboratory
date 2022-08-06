@@ -49,8 +49,8 @@ extension successfullyReservation {
     
      
     private func setupUI() {
-        
-        view.backgroundColor = .secondarySystemBackground
+        navigationController?.navigationBar.prefersLargeTitles = false
+        view.backgroundColor = .systemBackground
         title =  laboratoryName
         view.addSubview(label)
         label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
