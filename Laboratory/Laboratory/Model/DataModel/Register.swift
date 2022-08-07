@@ -9,14 +9,15 @@ import Foundation
 struct Register: Decodable  {
     
     let userName: String
-    let password: String
     let email: String
+    let password: String
     
     
-    internal init(userName: String = "", password: String = "", email: String = "" ) {
+    
+    internal init(userName: String = "", email: String = "", password: String = "" ) {
         self.userName = userName
-        self.password = password
         self.email = email
+        self.password = password
     }
 }
 

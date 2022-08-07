@@ -1,8 +1,10 @@
+
+
 //
-//  ReservationControll.swift
+//  CompleteReservation.swift
 //  Laboratory
 //
-//  Created by mehrnoush abdinian on 31.07.22.
+//  Created by mehrnoush abdinian on 07.08.22.
 //
 
 import Foundation
@@ -10,21 +12,28 @@ import UIKit
 import SwiftUI
 
 class ReservationControllViewController: UIViewController {
-    private lazy var securityContainer = UIView().autoLayoutView()
-    private lazy var protocolContainer = UIView().autoLayoutView()
+    private lazy var container = UIView().autoLayoutView()
     private lazy var label = UILabel().autoLayoutView()
     private lazy var protocolbutton = UIButton().autoLayoutView()
-    private lazy var security‌Button = UIButton().autoLayoutView()
     private lazy var protocolbuttonLabel = UILabel().autoLayoutView()
+    private lazy var security‌Button = UIButton().autoLayoutView()
     private lazy var security‌ButtonLabel = UILabel().autoLayoutView()
-    private lazy var unchecked = true
+    
+    private lazy var experimentTitleLabel = UILabel().autoLayoutView()
+    private lazy var experimentTitleTextView = UITextView().autoLayoutView()
+    
     private lazy var userAgreementView = UIView().autoLayoutView()
-    private lazy var responsiblePersonView = UIView().autoLayoutView()
-    private lazy var responsiblePersonLabel = UILabel().autoLayoutView()
-    private lazy var checkboxResponsiblePerson = UIButton().autoLayoutView()
+    private lazy var userAgreementCheckbox = UIButton(type: .custom).autoLayoutView()
     private lazy var userAgreementLabel = UILabel().autoLayoutView()
-    private lazy var checkboxUserAgreement = UIButton(type: .custom).autoLayoutView()
+    
+    private lazy var responsiblePersonView = UIView().autoLayoutView()
+    private lazy var responsiblePersoncheckbox = UIButton().autoLayoutView()
+    private lazy var responsiblePersonLabel = UILabel().autoLayoutView()
+  
     private lazy var submitButton = UIButton().autoLayoutView()
+   
+    private lazy var unchecked = true
+
     public var eventHandler: ((Event) -> Void)?
     public enum Event{
        case askLaborName(laboratoryName: String)
@@ -67,7 +76,7 @@ extension ReservationControllViewController {
 extension ReservationControllViewController {
     
 @objc func toggleCheckboxSelectionUserAgreement() {
-    checkboxUserAgreement.isSelected = !checkboxUserAgreement.isSelected
+    userAgreementCheckbox.isSelected = !userAgreementCheckbox.isSelected
 }
     
 }
@@ -75,7 +84,7 @@ extension ReservationControllViewController {
 extension ReservationControllViewController {
     
 @objc func toggleCheckboxSelectionResponsiblePerson() {
-    checkboxResponsiblePerson.isSelected = !checkboxResponsiblePerson.isSelected
+    responsiblePersoncheckbox.isSelected = !responsiblePersoncheckbox.isSelected
 }
     
 }
@@ -104,77 +113,104 @@ extension ReservationControllViewController {
     func setupUI() {
         view.backgroundColor = .systemBackground
         title = "\(laboratoryName) am \(selectedDate) um \(selectedTime)"
-        view.addSubview(label)
+        
+        
+//        container
+        view.addSubview(container)
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.backgroundColor = .systemBackground
+        
+        
+//        label
+        container.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         navigationController?.navigationBar.prefersLargeTitles = false
         label.textColor = .label
-        label.font = UIFont(name:"HelveticaNeue", size: 16)
+        label.font = UIFont(name:"HelveticaNeue", size: 14)
         label.textAlignment = .left
-        label.text = "Please download and read the security information and laboratory protocols."
+        label.text = "Bitte laden Sie die Sicherheitsinformationen und Laborprotokolle herunter und lesen Sie sie durch."
         label.backgroundColor = .systemBackground
         label.layer.cornerRadius = 5
         label.numberOfLines = 0
        
        
-        //securityContainer
-        view.addSubview(securityContainer)
-        securityContainer.translatesAutoresizingMaskIntoConstraints = false
-        securityContainer.addSubview(security‌Button)
+        //securityButton&Label
+        container.addSubview(security‌Button)
         security‌Button.translatesAutoresizingMaskIntoConstraints = false
         let image = UIImage(named: "pdf.png" )
         security‌Button.setImage(image, for: .normal)
-        securityContainer.addSubview(security‌ButtonLabel)
+        container.addSubview(security‌ButtonLabel)
         security‌ButtonLabel.translatesAutoresizingMaskIntoConstraints = false
         security‌ButtonLabel.text = "Sicherheit"
-        
-        //protocolContainer
-        view.addSubview(protocolContainer)
-        protocolContainer.translatesAutoresizingMaskIntoConstraints = false
-        protocolContainer.addSubview(protocolbutton)
+        security‌ButtonLabel.font = UIFont(name:"HelveticaNeue", size: 12)
+
+        //protocolButton&Label
+        container.addSubview(protocolbutton)
         protocolbutton.translatesAutoresizingMaskIntoConstraints = false
         protocolbutton.setImage(image, for: .normal)
-        protocolContainer.addSubview(protocolbuttonLabel)
+        container.addSubview(protocolbuttonLabel)
         protocolbuttonLabel.translatesAutoresizingMaskIntoConstraints = false
-        protocolbuttonLabel.text = "Protokoll"
+        protocolbuttonLabel.text = "Protocol"
+        protocolbuttonLabel.font = UIFont(name:"HelveticaNeue", size: 12)
         
+        
+        //experimentTitle
+        container.addSubview(experimentTitleTextView)
+        experimentTitleTextView.translatesAutoresizingMaskIntoConstraints = false
+        experimentTitleTextView.setCornerRadius(10)
+        experimentTitleTextView.setBorder(width: 0.5, color: .gray)
+        experimentTitleTextView.backgroundColor = .systemBackground
+        experimentTitleTextView.textColor = .label
+        experimentTitleTextView.font = UIFont(name:"HelveticaNeue", size: 14)
+        
+        //experimentTitleLabel
+        container.addSubview(experimentTitleLabel)
+        experimentTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        experimentTitleLabel.textColor = .label
+        experimentTitleLabel.font = UIFont(name:"HelveticaNeue", size: 14)
+        experimentTitleLabel.text = "Bitte geben Sie Ihren Experimenttitel ein:"
+
         //userAgreementView
-        view.addSubview(userAgreementView)
+        container.addSubview(userAgreementView)
         userAgreementView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // checkboxUserAgreement
+        userAgreementView.addSubview(userAgreementCheckbox)
+        userAgreementCheckbox.translatesAutoresizingMaskIntoConstraints = false
+        userAgreementCheckbox.setImage(UIImage.init(named: "squarr"), for: .normal)
+        userAgreementCheckbox.setImage(UIImage.init(named: "checkmark.square"), for: .selected)
+        userAgreementCheckbox.addTarget(self, action: #selector(self.toggleCheckboxSelectionUserAgreement), for: .touchUpInside)
         
         //userAgreementLabel
         userAgreementView.addSubview(userAgreementLabel)
         userAgreementLabel.translatesAutoresizingMaskIntoConstraints = false
         userAgreementLabel.numberOfLines = 0
         userAgreementLabel.text = "Ich habe die Protokolle und Sicherheitsinformationen gelesen und stimme ihnen zu."
+        userAgreementLabel.font = UIFont(name:"HelveticaNeue", size: 12)
+
         
-        // checkboxUserAgreement
-        responsiblePersonView.addSubview(checkboxUserAgreement)
-        checkboxUserAgreement.translatesAutoresizingMaskIntoConstraints = false
-        checkboxUserAgreement.image = UIImage(systemName: "squarr")
-//        checkboxUserAgreement.setImage(UIImage.init(named: "checkmark.square"), for: .selected)
-        checkboxUserAgreement.addTarget(self, action: #selector(self.toggleCheckboxSelectionUserAgreement), for: .touchUpInside)
 
         //responsiblePersonView
-        view.addSubview(responsiblePersonView)
+        container.addSubview(responsiblePersonView)
         responsiblePersonView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // checkboxResponsiblePerson
+        responsiblePersonView.addSubview(responsiblePersoncheckbox)
+        responsiblePersoncheckbox.translatesAutoresizingMaskIntoConstraints = false
+        responsiblePersoncheckbox.setImage(UIImage.init(named: "squarr"), for: .normal)
+        responsiblePersoncheckbox.setImage(UIImage.init(named: "checkmark.square"), for: .selected)
+        responsiblePersoncheckbox.addTarget(self, action: #selector(self.toggleCheckboxSelectionResponsiblePerson), for: .touchUpInside)
         
         //responsiblePersonLabel
         responsiblePersonView.addSubview(responsiblePersonLabel)
         responsiblePersonLabel.translatesAutoresizingMaskIntoConstraints = false
         responsiblePersonLabel.numberOfLines = 0
         responsiblePersonLabel.text = "Ich brauche die Anwesenheit der verantwortlichen Person im Labor."
-        
-        // checkboxResponsiblePerson
-        responsiblePersonView.addSubview(checkboxResponsiblePerson)
-        checkboxResponsiblePerson.translatesAutoresizingMaskIntoConstraints = false
-        checkboxResponsiblePerson.setImage(UIImage.init(named: "squarr"), for: .normal)
-        checkboxResponsiblePerson.setImage(UIImage.init(named: "checkmark.square"), for: .selected)
-        checkboxResponsiblePerson.addTarget(self, action: #selector(self.toggleCheckboxSelectionResponsiblePerson), for: .touchUpInside)
-        
-        
+        responsiblePersonLabel.font = UIFont(name:"HelveticaNeue", size: 12)
 
+        
         //submitButton
-        view.addSubview(submitButton)
+        container.addSubview(submitButton)
         submitButton.translatesAutoresizingMaskIntoConstraints = false
         submitButton.title = "einreichen"
         submitButton.setCornerRadius(10)
@@ -186,91 +222,102 @@ extension ReservationControllViewController {
     }
     
     func setupLayout() {
-        //label
-        label.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        label.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 40).isActive = true
-        label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
-        //securityContainer
-        securityContainer.heightAnchor.constraint(equalToConstant: 144).isActive = true
-        securityContainer.widthAnchor.constraint(equalToConstant: 100).isActive = true
-
-        securityContainer.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20).isActive = true
-        securityContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80).isActive = true
+//        container
+        container.heightAnchor.constraint(equalToConstant: 450).isActive = true
+//        container.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20).isActive = true
+        container.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
+        container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        container.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
+        //label
+        label.topAnchor.constraint(equalTo: container.topAnchor, constant: 10).isActive = true
+        label.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 10).isActive = true
+        label.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -10).isActive = true
+        
+     
         
         //security‌Button
-        security‌Button.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        security‌Button.widthAnchor.constraint(equalToConstant: 80).isActive = true
-
-        security‌Button.topAnchor.constraint(equalTo: securityContainer.topAnchor, constant: 10).isActive = true
-        security‌Button.leadingAnchor.constraint(equalTo: securityContainer.leadingAnchor, constant: 10).isActive = true
+        security‌Button.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        security‌Button.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        security‌Button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
+        security‌Button.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 60).isActive = true
         
         //security‌ButtonLabel
-        security‌ButtonLabel.heightAnchor.constraint(equalToConstant: 44).isActive = true
         security‌ButtonLabel.topAnchor.constraint(equalTo: security‌Button.bottomAnchor, constant: 10).isActive = true
-        security‌ButtonLabel.centerXAnchor.constraint(equalTo: securityContainer.centerXAnchor).isActive = true
+        security‌ButtonLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 60).isActive = true
         
         
-        
-        
-        //protocolContainer
-        protocolContainer.heightAnchor.constraint(equalToConstant: 144).isActive = true
-        protocolContainer.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        protocolContainer.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20).isActive = true
-        protocolContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80).isActive = true
-        
-        
+       
         //protocolbutton
-        protocolbutton.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        protocolbutton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        protocolbutton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        protocolbutton.widthAnchor.constraint(equalToConstant: 60).isActive = true
 
-        protocolbutton.topAnchor.constraint(equalTo: protocolContainer.topAnchor, constant: 10).isActive = true
-        protocolbutton.trailingAnchor.constraint(equalTo: protocolContainer.trailingAnchor, constant: -10).isActive = true
+        protocolbutton.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
+        protocolbutton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -60).isActive = true
         
         //protocolbuttonLabel
-        protocolbuttonLabel.heightAnchor.constraint(equalToConstant: 44).isActive = true
         protocolbuttonLabel.topAnchor.constraint(equalTo: protocolbutton.bottomAnchor, constant: 10).isActive = true
-        protocolbuttonLabel.centerXAnchor.constraint(equalTo: protocolContainer.centerXAnchor).isActive = true
+        protocolbuttonLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -60).isActive = true
+        
+        //experimentTitleLabel
+        experimentTitleLabel.topAnchor.constraint(equalTo: security‌ButtonLabel.bottomAnchor, constant: 20).isActive = true
+        experimentTitleLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
+       
+
+        //experimentTitleTextView
+        experimentTitleTextView.topAnchor.constraint(equalTo: experimentTitleLabel.bottomAnchor, constant: 10).isActive = true
+        experimentTitleTextView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
+        experimentTitleTextView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
+        experimentTitleTextView.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        
+        
         
         //userAgreementView
-        userAgreementView.topAnchor.constraint(equalTo: protocolContainer.bottomAnchor, constant: 20).isActive = true
-        userAgreementView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        userAgreementView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        userAgreementView.topAnchor.constraint(equalTo: experimentTitleTextView.bottomAnchor, constant: 10).isActive = true
+        userAgreementView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
+        userAgreementView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
+        userAgreementView.heightAnchor.constraint(equalToConstant: 54).isActive = true
+        
+        //userAgreementCheckbox
+        userAgreementCheckbox.topAnchor.constraint(equalTo: userAgreementView.topAnchor, constant: 5).isActive = true
+        userAgreementCheckbox.leadingAnchor.constraint(equalTo: userAgreementView.leadingAnchor, constant: 10).isActive = true
+        userAgreementCheckbox.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        userAgreementCheckbox.widthAnchor.constraint(equalToConstant: 44).isActive = true
         
         //userAgreementLabel
-        userAgreementLabel.topAnchor.constraint(equalTo: userAgreementView.topAnchor, constant: 10).isActive = true
-        userAgreementLabel.leadingAnchor.constraint(equalTo: userAgreementView.leadingAnchor, constant: 64).isActive = true
-        userAgreementLabel.trailingAnchor.constraint(equalTo: userAgreementView.trailingAnchor, constant: -10).isActive = true
-        //checkboxUserAgreement
-//        checkboxUserAgreement.centerYAnchor.constraint(equalTo: userAgreementView.centerYAnchor).isActive = true
-        checkboxUserAgreement.topAnchor.constraint(equalTo: userAgreementView.topAnchor, constant: 10).isActive = true
-        checkboxUserAgreement.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        checkboxUserAgreement.widthAnchor.constraint(equalToConstant: 44).isActive = true
-        checkboxUserAgreement.leadingAnchor.constraint(equalTo: userAgreementView.leadingAnchor, constant: 10).isActive = true
+        userAgreementLabel.topAnchor.constraint(equalTo: userAgreementView.topAnchor, constant: 5).isActive = true
+        userAgreementLabel.leadingAnchor.constraint(equalTo: userAgreementCheckbox.trailingAnchor, constant: 10).isActive = true
+        userAgreementLabel.trailingAnchor.constraint(equalTo: userAgreementView.trailingAnchor, constant: 0).isActive = true
+        
+        
+        
         
         
         //ResponsiblePersonView
-        responsiblePersonView.topAnchor.constraint(equalTo: userAgreementLabel.bottomAnchor, constant: 20).isActive = true
-        responsiblePersonView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        responsiblePersonView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        responsiblePersonView.topAnchor.constraint(equalTo: userAgreementView.bottomAnchor, constant: 0).isActive = true
+        responsiblePersonView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
+        responsiblePersonView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
+        responsiblePersonView.heightAnchor.constraint(equalToConstant: 54).isActive = true
+
+
+        //checkboxResponsiblePerson
+        responsiblePersoncheckbox.topAnchor.constraint(equalTo: responsiblePersonView.topAnchor, constant: 5).isActive = true
+        responsiblePersoncheckbox.leadingAnchor.constraint(equalTo: responsiblePersonView.leadingAnchor, constant: 10).isActive = true
+        responsiblePersoncheckbox.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        responsiblePersoncheckbox.widthAnchor.constraint(equalToConstant: 44).isActive = true
         
         //ResponsiblePersonLabel
-        responsiblePersonLabel.topAnchor.constraint(equalTo: responsiblePersonView.topAnchor, constant: 10).isActive = true
-        responsiblePersonLabel.leadingAnchor.constraint(equalTo: responsiblePersonView.leadingAnchor, constant: 64).isActive = true
-        responsiblePersonLabel.trailingAnchor.constraint(equalTo: responsiblePersonView.trailingAnchor, constant: -10).isActive = true
+        responsiblePersonLabel.topAnchor.constraint(equalTo: responsiblePersonView.topAnchor, constant: 5).isActive = true
+        responsiblePersonLabel.leadingAnchor.constraint(equalTo: responsiblePersoncheckbox.trailingAnchor, constant: 10).isActive = true
+        responsiblePersonLabel.trailingAnchor.constraint(equalTo: responsiblePersonView.trailingAnchor, constant: 0).isActive = true
         
-        //checkboxResponsiblePerson
-//        checkboxUserAgreement.centerYAnchor.constraint(equalTo: userAgreementView.centerYAnchor).isActive = true
-        checkboxResponsiblePerson.topAnchor.constraint(equalTo: responsiblePersonView.topAnchor, constant: 10).isActive = true
-        checkboxResponsiblePerson.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        checkboxResponsiblePerson.widthAnchor.constraint(equalToConstant: 44).isActive = true
-        checkboxResponsiblePerson.leadingAnchor.constraint(equalTo: responsiblePersonView.leadingAnchor, constant: 10).isActive = true
+       
         
         //submitButton
-        submitButton.topAnchor.constraint(equalTo: responsiblePersonLabel.bottomAnchor, constant: 50).isActive = true
-        submitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        submitButton.topAnchor.constraint(equalTo: responsiblePersonView.bottomAnchor, constant: 10).isActive = true
+        submitButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
+        submitButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
         submitButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
 
     }
